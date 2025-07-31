@@ -107,9 +107,13 @@ export default function Home() {
         <meta name="robots" content="index, follow" />
         <meta name="author" content="BetCalc Pro" />
         <link rel="canonical" href="https://betcalc-pro.com/" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="alternate" hrefLang="es" href="https://betcalc-pro.com/" />
         <link rel="alternate" hrefLang="en" href="https://betcalc-pro.com/en/" />
         <link rel="alternate" hrefLang="pt" href="https://betcalc-pro.com/pt/" />
+        
+        {/* Google AdSense */}
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6224617757558738" crossOrigin="anonymous"></script>
         
         {/* Open Graph */}
         <meta property="og:title" content="Bet Calculator BetMentor | Professional Betting Calculator Tool" />
@@ -289,8 +293,8 @@ export default function Home() {
             <div className="ad-space">
               <ins className="adsbygoogle"
                    style={{display:'block'}}
-                   data-ad-client="ca-pub-XXXXXXXXXX"
-                   data-ad-slot="XXXXXXXXXX"
+                   data-ad-client="ca-pub-6224617757558738"
+                   data-ad-slot="auto"
                    data-ad-format="auto"
                    data-full-width-responsive="true"></ins>
             </div>
@@ -315,8 +319,8 @@ export default function Home() {
             <div className="ad-space">
               <ins className="adsbygoogle"
                    style={{display:'block'}}
-                   data-ad-client="ca-pub-XXXXXXXXXX"
-                   data-ad-slot="XXXXXXXXXX"
+                   data-ad-client="ca-pub-6224617757558738"
+                   data-ad-slot="auto"
                    data-ad-format="auto"
                    data-full-width-responsive="true"></ins>
             </div>
@@ -327,8 +331,8 @@ export default function Home() {
         <div style={{textAlign: 'center', margin: '30px 0'}}>
           <ins className="adsbygoogle"
                style={{display:'block'}}
-               data-ad-client="ca-pub-XXXXXXXXXX"
-               data-ad-slot="XXXXXXXXXX"
+               data-ad-client="ca-pub-6224617757558738"
+               data-ad-slot="auto"
                data-ad-format="auto"
                data-full-width-responsive="true"></ins>
         </div>
