@@ -1,0 +1,47 @@
+{
+  "name": "betcalculator-betmentor",
+  "version": "1.0.0",
+  "description": "Professional bet calculator with 15+ bet types, 5 odds formats, and real-time risk assessment",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "export": "next export"
+  },
+  "keywords": [
+    "bet calculator",
+    "calculadora apuestas",
+    "sports betting",
+    "parlay calculator",
+    "odds calculator",
+    "next.js",
+    "react",
+    "typescript"
+  ],
+  "author": "BetCalc Pro Team",
+  "license": "MIT",
+  "dependencies": {
+    "next": "^14.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^5.0.0",
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.0.0",
+    "eslint-config-next": "^14.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:wegnite/betCalculatorBetmentor.git"
+  },
+  "homepage": "https://betcalc-pro.com",
+  "bugs": {
+    "url": "https://github.com/wegnite/betCalculatorBetmentor/issues"
+  }
+}

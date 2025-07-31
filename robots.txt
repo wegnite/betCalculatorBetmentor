@@ -1,0 +1,65 @@
+# Robots.txt for BetCalc Pro - Professional Bet Calculator
+# https://bet-calculator-betmentor.com/robots.txt
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://bet-calculator-betmentor.com/sitemap.xml
+
+# Allow all major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+# Disallow potential duplicate content or admin areas (if they exist in future)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /temp/
+Disallow: /*.json$
+Disallow: /*?print=1
+Disallow: /*?pdf=1
+
+# Allow CSS, JS, and images for proper rendering
+Allow: /css/
+Allow: /js/
+Allow: /images/
+Allow: /fonts/
+Allow: /icons/
+Allow: /*.css
+Allow: /*.js
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.gif
+Allow: /*.svg
+Allow: /*.webp
+Allow: /*.ico
+
+# Allow AdSense crawler
+User-agent: Mediapartners-Google
+Allow: /
+
+# Allow AdsBot for ad quality
+User-agent: AdsBot-Google
+Allow: /
+
+# Crawl delay (optional - helps prevent server overload)
+Crawl-delay: 1
+
+# Host directive (helps with canonicalization)
+Host: https://bet-calculator-betmentor.com

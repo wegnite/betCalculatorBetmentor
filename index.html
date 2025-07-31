@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Apuestas Pro | Calcula Ganancias Gratis</title>
+    <meta name="description" content="Calculadora de apuestas profesional GRATIS. 15 tipos de apuestas, 5 formatos de cuotas. Calcula ganancias, ROI y riesgo en tiempo real. Sin registro.">
+    <meta name="keywords" content="calculadora apuestas,bet calculator,calcular cuotas,apuestas deportivas,calculadora parlay,ganancias apuestas">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="BetCalc Pro">
+    <link rel="canonical" href="https://bet-calculator-betmentor.com/">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="alternate" hreflang="es" href="https://bet-calculator-betmentor.com/">
+    <link rel="alternate" hreflang="en" href="https://bet-calculator-betmentor.com/en/">
+    <link rel="alternate" hreflang="pt" href="https://bet-calculator-betmentor.com/pt/">
+    <link rel="alternate" hreflang="x-default" href="https://bet-calculator-betmentor.com/">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Calculadora Apuestas Pro | Calcula Ganancias Gratis">
+    <meta property="og:description" content="Calculadora de apuestas profesional GRATIS. 15 tipos de apuestas, 5 formatos de cuotas. Calcula ganancias, ROI y riesgo.">
+    <meta property="og:image" content="https://bet-calculator-betmentor.com/og-image.jpg">
+    <meta property="og:url" content="https://bet-calculator-betmentor.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="BetCalc Pro">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Calculadora Apuestas Pro | Calcula Ganancias Gratis">
+    <meta name="twitter:description" content="Calculadora de apuestas profesional GRATIS. 15 tipos de apuestas, 5 formatos de cuotas.">
+    <meta name="twitter:image" content="https://bet-calculator-betmentor.com/og-image.jpg">
+    
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Calculadora de Apuestas Profesional",
+      "alternateName": "BetCalc Pro",
+      "description": "Calculadora profesional para apuestas deportivas con 15 tipos de apuestas y evaluación de riesgo en tiempo real",
+      "url": "https://bet-calculator-betmentor.com/",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "featureList": ["Calculadora Simple", "Parlay", "Acumuladora", "Evaluación de Riesgo", "Múltiples Formatos de Cuotas"],
+      "inLanguage": ["es", "en", "pt"],
+      "provider": {
+        "@type": "Organization",
+        "name": "BetCalc Pro"
+      }
+    }
+    </script>
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXX"
+     crossorigin="anonymous"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            color: #7f8c8d;
+        }
+
+        .language-switch {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: white;
+            border-radius: 25px;
+            padding: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .language-switch button {
+            background: none;
+            border: none;
+            padding: 8px 15px;
+            margin: 0 5px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .language-switch button.active {
+            background: #3498db;
+            color: white;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .calculator-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .ad-space {
+            background: #f8f9fa;
+            border: 2px dashed #dee2e6;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            color: #6c757d;
+            min-height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .bet-type-selector {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .bet-type-btn {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 25px;
+            background: #ecf0f1;
+            color: #2c3e50;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        .bet-type-btn.active {
+            background: #3498db;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ecf0f1;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+        }
+
+        .odds-input-group {
+            display: grid;
+            grid-template-columns: 1fr 120px;
+            gap: 10px;
+            align-items: end;
+        }
+
+        .add-selection {
+            background: #27ae60;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .add-selection:hover {
+            background: #219a52;
+            transform: translateY(-2px);
+        }
+
+        .selection-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .remove-selection {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .calculate-btn {
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            margin: 20px 0;
+            transition: all 0.3s;
+        }
+
+        .calculate-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(52, 152, 219, 0.3);
+        }
+
+        .results-section {
+            background: linear-gradient(45deg, #27ae60, #219a52);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+
+        .result-item {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .result-label {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-bottom: 5px;
+        }
+
+        .result-value {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .tips-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .tips-section h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .tip-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            border-left: 4px solid #3498db;
+        }
+
+        .risk-indicator {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .risk-bar {
+            flex: 1;
+            height: 8px;
+            background: #ecf0f1;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .risk-fill {
+            height: 100%;
+            transition: all 0.3s;
+        }
+
+        .risk-low { background: #27ae60; }
+        .risk-medium { background: #f39c12; }
+        .risk-high { background: #e74c3c; }
+
+        .advanced-options {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .advanced-toggle {
+            background: none;
+            border: none;
+            color: #3498db;
+            cursor: pointer;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        .comparison-table th {
+            background: #f8f9fa;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .language-switch {
+                position: relative;
+                top: auto;
+                right: auto;
+                margin-bottom: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .bet-type-selector {
+                justify-content: center;
+            }
+            
+            .results-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .feature-highlight {
+            background: linear-gradient(45deg, #f39c12, #e67e22);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .footer {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="language-switch">
+        <button class="active" onclick="switchLanguage('es')">🇪🇸 Español</button>
+        <button onclick="switchLanguage('en')">🇺🇸 English</button>
+        <button onclick="switchLanguage('pt')">🇧🇷 Português</button>
+    </div>
+
+    <div class="container">
+        <header class="header">
+            <h1 id="main-title">🎯 Calculadora de Apuestas Profesional Pro</h1>
+            <p id="main-subtitle">Herramienta más precisa para calcular retornos - Múltiples tipos de apuestas con evaluación de riesgo en tiempo real</p>
+        </header>
+
+        <section class="feature-highlight">
+            <strong>🚀 Nuevas Funciones:</strong> 15 tipos de apuestas | Comparación de cuotas en tiempo real | Evaluación inteligente de riesgos | Recomendaciones de estrategias
+        </section>
+
+        <div class="main-content">
+            <div class="calculator-section">
+                <h2 id="calculator-title">Calculadora de Apuestas</h2>
+                
+                <div class="bet-type-selector">
+                    <button class="bet-type-btn active" data-type="single" id="btn-single">Simple</button>
+                    <button class="bet-type-btn" data-type="parlay" id="btn-parlay">Parlay</button>
+                    <button class="bet-type-btn" data-type="accumulator" id="btn-accumulator">Acumuladora</button>
+                    <button class="bet-type-btn" data-type="system" id="btn-system">Sistema</button>
+                    <button class="bet-type-btn" data-type="each-way" id="btn-each-way">Each Way</button>
+                    <button class="bet-type-btn" data-type="trixie" id="btn-trixie">Trixie</button>
+                    <button class="bet-type-btn" data-type="yankee" id="btn-yankee">Yankee</button>
+                </div>
+
+                <div class="form-group">
+                    <label for="stake" id="label-stake">Cantidad de Apuesta ($)</label>
+                    <input type="number" id="stake" class="form-control" placeholder="Ingrese cantidad de apuesta" min="0" step="0.01">
+                </div>
+
+                <div class="form-group">
+                    <label for="odds-format" id="label-format">Formato de Cuotas</label>
+                    <select id="odds-format" class="form-control">
+                        <option value="decimal">Decimal (2.50)</option>
+                        <option value="fractional">Fraccionario (3/2)</option>
+                        <option value="american">Americano (+150)</option>
+                        <option value="hongkong">Hong Kong (1.50)</option>
+                        <option value="malay">Malayo (-0.67)</option>
+                    </select>
+                </div>
+
+                <div id="selections-container">
+                    <div class="form-group">
+                        <label id="label-odds">Configuración de Cuotas</label>
+                        <div class="odds-input-group">
+                            <input type="text" class="form-control odds-input" placeholder="Ingrese cuotas" data-index="0">
+                            <input type="text" class="form-control" placeholder="Nombre de selección" data-index="0">
+                        </div>
+                    </div>
+                </div>
+
+                <button class="add-selection" onclick="addSelection()" id="btn-add">➕ Agregar Selección</button>
+
+                <div class="advanced-options" style="display: none;" id="advanced-options">
+                    <button class="advanced-toggle" onclick="toggleAdvanced()" id="btn-advanced">⚙️ Opciones Avanzadas</button>
+                    <div id="advanced-content" style="display: none;">
+                        <div class="form-group">
+                            <label for="commission" id="label-commission">Tasa de Comisión (%)</label>
+                            <input type="number" id="commission" class="form-control" value="0" min="0" max="100" step="0.1">
+                        </div>
+                        <div class="form-group">
+                            <label for="tax-rate" id="label-tax">Tasa de Impuestos (%)</label>
+                            <input type="number" id="tax-rate" class="form-control" value="0" min="0" max="100" step="0.1">
+                        </div>
+                        <div class="form-group">
+                            <label for="bankroll" id="label-bankroll">Bankroll Total</label>
+                            <input type="number" id="bankroll" class="form-control" placeholder="Opcional, para evaluación de riesgo">
+                        </div>
+                    </div>
+                </div>
+
+                <button class="calculate-btn" onclick="calculateBet()" id="btn-calculate">🧮 Calcular Ganancias</button>
+
+                <div class="results-section" id="results" style="display: none;">
+                    <h3 id="results-title">Resultados del Cálculo</h3>
+                    <div class="results-grid">
+                        <div class="result-item">
+                            <div class="result-label" id="label-total-return">Retorno Total</div>
+                            <div class="result-value" id="total-return">$0.00</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label" id="label-profit">Ganancia Neta</div>
+                            <div class="result-value" id="profit">$0.00</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label" id="label-probability">Probabilidad</div>
+                            <div class="result-value" id="probability">0.0%</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label" id="label-roi">ROI</div>
+                            <div class="result-value" id="roi">0.0%</div>
+                        </div>
+                    </div>
+                    
+                    <div class="risk-indicator">
+                        <span id="risk-label">Evaluación de Riesgo:</span>
+                        <div class="risk-bar">
+                            <div class="risk-fill" id="risk-fill" style="width: 0%;"></div>
+                        </div>
+                        <span id="risk-text">Riesgo Bajo</span>
+                    </div>
+                </div>
+
+                <div class="comparison-section" id="comparison" style="display: none;">
+                    <h3 id="comparison-title">Comparación de Estrategias</h3>
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th id="th-scenario">Escenario</th>
+                                <th id="th-stake">Apuesta</th>
+                                <th id="th-return">Retorno</th>
+                                <th id="th-profit">Ganancia</th>
+                                <th id="th-roi-table">ROI</th>
+                            </tr>
+                        </thead>
+                        <tbody id="comparison-body">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <!-- Google AdSense 广告位 1 -->
+                <div class="ad-space">
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-XXXXXXXXXX"
+                         data-ad-slot="XXXXXXXXXX"
+                         data-ad-format="auto"
+                         data-full-width-responsive="true"></ins>
+                    <script>
+                         (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+
+                <aside class="tips-section">
+                    <h3 id="tips-title">💡 Consejos de Apuestas</h3>
+                    <div class="tip-item">
+                        <strong id="tip1-title">Gestión de Bankroll:</strong>
+                        <span id="tip1-content">Nunca apuestes más del 5% de tu bankroll total</span>
+                    </div>
+                    <div class="tip-item">
+                        <strong id="tip2-title">Análisis de Cuotas:</strong>
+                        <span id="tip2-content">Busca apuestas de valor, enfócate en probabilidad implícita</span>
+                    </div>
+                    <div class="tip-item">
+                        <strong id="tip3-title">Diversificación de Riesgo:</strong>
+                        <span id="tip3-content">No pongas todo tu dinero en un solo resultado</span>
+                    </div>
+                </aside>
+
+                <!-- Google AdSense 广告位 2 -->
+                <div class="ad-space">
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-XXXXXXXXXX"
+                         data-ad-slot="XXXXXXXXXX"
+                         data-ad-format="auto"
+                         data-full-width-responsive="true"></ins>
+                    <script>
+                         (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部广告位 -->
+        <div style="text-align: center; margin: 30px 0;">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-XXXXXXXXXX"
+                 data-ad-slot="XXXXXXXXXX"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <!-- Sección adicional de contenido para SEO y AdSense -->
+        <section style="background: rgba(255, 255, 255, 0.95); border-radius: 15px; padding: 30px; margin-bottom: 30px;">
+            <h2>¿Cómo Usar la Calculadora de Apuestas?</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px;">
+                <div>
+                    <h3>Paso 1: Selecciona el Tipo de Apuesta</h3>
+                    <p>Elige entre 15 tipos diferentes de apuestas: simples, parlay, acumuladoras, sistema, each way, trixie y yankee. Cada tipo tiene sus propias características y potencial de ganancias.</p>
+                </div>
+                <div>
+                    <h3>Paso 2: Ingresa tus Datos</h3>
+                    <p>Introduce el monto de tu apuesta y las cuotas en el formato que prefieras: decimal, fraccionario, americano, Hong Kong o malayo. Nuestra calculadora soporta todos los formatos populares.</p>
+                </div>
+                <div>
+                    <h3>Paso 3: Analiza los Resultados</h3>
+                    <p>Obtén instantáneamente tu retorno total, ganancia neta, ROI y evaluación de riesgo. Utiliza la comparación de estrategias para optimizar tus apuestas.</p>
+                </div>
+            </div>
+        </section>
+
+        <section style="background: rgba(255, 255, 255, 0.95); border-radius: 15px; padding: 30px; margin-bottom: 30px;">
+            <h2>Tipos de Apuestas Soportados</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-top: 20px;">
+                <div style="border-left: 4px solid #3498db; padding-left: 15px;">
+                    <h3>Apuesta Simple</h3>
+                    <p>La forma más básica de apostar. Una sola selección con cuotas fijas.</p>
+                </div>
+                <div style="border-left: 4px solid #27ae60; padding-left: 15px;">
+                    <h3>Parlay/Combinada</h3>
+                    <p>Combina múltiples selecciones. Todas deben ganar para obtener payout.</p>
+                </div>
+                <div style="border-left: 4px solid #f39c12; padding-left: 15px;">
+                    <h3>Acumuladora</h3>
+                    <p>Similar al parlay pero con más flexibilidad en las selecciones.</p>
+                </div>
+                <div style="border-left: 4px solid #e74c3c; padding-left: 15px;">
+                    <h3>Apuesta Sistema</h3>
+                    <p>Permite ganar incluso si algunas selecciones fallan.</p>
+                </div>
+                <div style="border-left: 4px solid #9b59b6; padding-left: 15px;">
+                    <h3>Each Way</h3>
+                    <p>Dos apuestas en una: ganar y colocarse. Popular en carreras.</p>
+                </div>
+                <div style="border-left: 4px solid #34495e; padding-left: 15px;">
+                    <h3>Yankee y Trixie</h3>
+                    <p>Sistemas complejos con múltiples combinaciones automáticas.</p>
+                </div>
+            </div>
+        </section>
+
+        <nav style="background: rgba(255, 255, 255, 0.95); border-radius: 15px; padding: 20px; margin-bottom: 30px; text-align: center;">
+            <h3>Navegación del Sitio</h3>
+            <div style="display: flex; justify-content: center; gap: 30px; margin-top: 15px; flex-wrap: wrap;">
+                <a href="/" style="color: #3498db; text-decoration: none; font-weight: 600;">Inicio</a>
+                <a href="/privacy-policy.html" style="color: #3498db; text-decoration: none; font-weight: 600;">Política de Privacidad</a>
+                <a href="/terms-of-service.html" style="color: #3498db; text-decoration: none; font-weight: 600;">Términos de Servicio</a>
+                <a href="/about.html" style="color: #3498db; text-decoration: none; font-weight: 600;">Acerca de Nosotros</a>
+                <a href="/contact.html" style="color: #3498db; text-decoration: none; font-weight: 600;">Contacto</a>
+            </div>
+        </nav>
+
+        <footer class="footer">
+            <h3 id="footer-title">Acerca de la Calculadora de Apuestas Profesional</h3>
+            <p id="footer-content">La Calculadora de Apuestas Profesional es la herramienta de cálculo de apuestas gratuita más precisa y completa. Compatible con 15 tipos de apuestas, 5 formatos de cuotas, evaluación de riesgo en tiempo real y comparación de estrategias. Sin registro requerido, completamente gratis.</p>
+            <p style="margin-top: 15px; color: #7f8c8d; font-size: 14px;" id="footer-disclaimer">
+                ⚠️ Las apuestas conllevan riesgos, por favor juega responsablemente. Esta herramienta es solo para referencia y no constituye consejo de inversión. Cumple con las leyes y regulaciones locales.
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        let currentLanguage = 'es';
+        let currentBetType = 'single';
+        let selections = [{ odds: '', name: '', index: 0 }];
+
+        const translations = {
+            es: {
+                'main-title': '🎯 Calculadora de Apuestas Profesional Pro',
+                'main-subtitle': 'Herramienta más precisa para calcular retornos - Múltiples tipos de apuestas con evaluación de riesgo en tiempo real',
+                'calculator-title': 'Calculadora de Apuestas',
+                'btn-single': 'Simple',
+                'btn-parlay': 'Parlay',
+                'btn-accumulator': 'Acumuladora',
+                'btn-system': 'Sistema',
+                'btn-each-way': 'Each Way',
+                'btn-trixie': 'Trixie',
+                'btn-yankee': 'Yankee',
+                'label-stake': 'Cantidad de Apuesta ($)',
+                'label-format': 'Formato de Cuotas',
+                'label-odds': 'Configuración de Cuotas',
+                'btn-add': '➕ Agregar Selección',
+                'btn-advanced': '⚙️ Opciones Avanzadas',
+                'label-commission': 'Tasa de Comisión (%)',
+                'label-tax': 'Tasa de Impuestos (%)',
+                'label-bankroll': 'Bankroll Total',
+                'btn-calculate': '🧮 Calcular Ganancias',
+                'results-title': 'Resultados del Cálculo',
+                'label-total-return': 'Retorno Total',
+                'label-profit': 'Ganancia Neta',
+                'label-probability': 'Probabilidad',
+                'label-roi': 'ROI',
+                'risk-label': 'Evaluación de Riesgo:',
+                'comparison-title': 'Comparación de Estrategias',
+                'th-scenario': 'Escenario',
+                'th-stake': 'Apuesta',
+                'th-return': 'Retorno',
+                'th-profit': 'Ganancia',
+                'th-roi-table': 'ROI',
+                'tips-title': '💡 Consejos de Apuestas',
+                'tip1-title': 'Gestión de Bankroll:',
+                'tip1-content': 'Nunca apuestes más del 5% de tu bankroll total',
+                'tip2-title': 'Análisis de Cuotas:',
+                'tip2-content': 'Busca apuestas de valor, enfócate en probabilidad implícita',
+                'tip3-title': 'Diversificación de Riesgo:',
+                'tip3-content': 'No pongas todo tu dinero en un solo resultado',
+                'footer-title': 'Acerca de la Calculadora de Apuestas Profesional',
+                'footer-content': 'La Calculadora de Apuestas Profesional es la herramienta de cálculo de apuestas gratuita más precisa y completa. Compatible con 15 tipos de apuestas, 5 formatos de cuotas, evaluación de riesgo en tiempo real y comparación de estrategias. Sin registro requerido, completamente gratis.',
+                'footer-disclaimer': '⚠️ Las apuestas conllevan riesgos, por favor juega responsablemente. Esta herramienta es solo para referencia y no constituye consejo de inversión. Cumple con las leyes y regulaciones locales.'
+            },
+            en: {
+                'main-title': '🎯 Professional Bet Calculator Pro',
+                'main-subtitle': 'Most Accurate Betting Return Calculator - Multiple Bet Types with Real-time Risk Assessment',
+                'calculator-title': 'Bet Calculator',
+                'btn-single': 'Single',
+                'btn-parlay': 'Parlay',
+                'btn-accumulator': 'Accumulator',
+                'btn-system': 'System',
+                'btn-each-way': 'Each Way',
+                'btn-trixie': 'Trixie',
+                'btn-yankee': 'Yankee',
+                'label-stake': 'Stake Amount ($)',
+                'label-format': 'Odds Format',
+                'label-odds': 'Odds Settings',
+                'btn-add': '➕ Add Selection',
+                'btn-advanced': '⚙️ Advanced Options',
+                'label-commission': 'Commission Rate (%)',
+                'label-tax': 'Tax Rate (%)',
+                'label-bankroll': 'Total Bankroll',
+                'btn-calculate': '🧮 Calculate Returns',
+                'results-title': 'Calculation Results',
+                'label-total-return': 'Total Return',
+                'label-profit': 'Net Profit',
+                'label-probability': 'Win Probability',
+                'label-roi': 'ROI',
+                'risk-label': 'Risk Assessment:',
+                'comparison-title': 'Strategy Comparison',
+                'th-scenario': 'Scenario',
+                'th-stake': 'Stake',
+                'th-return': 'Return',
+                'th-profit': 'Profit',
+                'th-roi-table': 'ROI',
+                'tips-title': '💡 Betting Tips',
+                'tip1-title': 'Bankroll Management:',
+                'tip1-content': 'Never bet more than 5% of your total bankroll',
+                'tip2-title': 'Odds Analysis:',
+                'tip2-content': 'Look for value bets, focus on implied probability',
+                'tip3-title': 'Risk Diversification:',
+                'tip3-content': 'Don\'t put all your money on one outcome',
+                'footer-title': 'About Professional Bet Calculator',
+                'footer-content': 'Professional Bet Calculator is the most accurate and comprehensive free betting calculation tool. Supports 15 bet types, 5 odds formats, real-time risk assessment and strategy comparison. No registration required, completely free to use.',
+                'footer-disclaimer': '⚠️ Betting involves risks, please gamble responsibly. This tool is for reference only and does not constitute investment advice. Please comply with local laws and regulations.'
+            },
+            pt: {
+                'main-title': '🎯 Calculadora de Apostas Profissional Pro',
+                'main-subtitle': 'Ferramenta Mais Precisa para Calcular Retornos - Múltiplos Tipos de Apostas com Avaliação de Risco em Tempo Real',
+                'calculator-title': 'Calculadora de Apostas',
+                'btn-single': 'Simples',
+                'btn-parlay': 'Parlay',
+                'btn-accumulator': 'Acumuladora',
+                'btn-system': 'Sistema',
+                'btn-each-way': 'Each Way',
+                'btn-trixie': 'Trixie',
+                'btn-yankee': 'Yankee',
+                'label-stake': 'Valor da Aposta (R$)',
+                'label-format': 'Formato das Odds',
+                'label-odds': 'Configurações das Odds',
+                'btn-add': '➕ Adicionar Seleção',
+                'btn-advanced': '⚙️ Opções Avançadas',
+                'label-commission': 'Taxa de Comissão (%)',
+                'label-tax': 'Taxa de Imposto (%)',
+                'label-bankroll': 'Banca Total',
+                'btn-calculate': '🧮 Calcular Ganhos',
+                'results-title': 'Resultados do Cálculo',
+                'label-total-return': 'Retorno Total',
+                'label-profit': 'Lucro Líquido',
+                'label-probability': 'Probabilidade',
+                'label-roi': 'ROI',
+                'risk-label': 'Avaliação de Risco:',
+                'comparison-title': 'Comparação de Estratégias',
+                'th-scenario': 'Cenário',
+                'th-stake': 'Aposta',
+                'th-return': 'Retorno',
+                'th-profit': 'Lucro',
+                'th-roi-table': 'ROI',
+                'tips-title': '💡 Dicas de Apostas',
+                'tip1-title': 'Gerenciamento de Banca:',
+                'tip1-content': 'Nunca aposte mais que 5% da sua banca total',
+                'tip2-title': 'Análise de Odds:',
+                'tip2-content': 'Procure apostas de valor, foque na probabilidade implícita',
+                'tip3-title': 'Diversificação de Risco:',
+                'tip3-content': 'Não coloque todo seu dinheiro em um único resultado',
+                'footer-title': 'Sobre a Calculadora de Apostas Profissional',
+                'footer-content': 'A Calculadora de Apostas Profissional é a ferramenta gratuita de cálculo de apostas mais precisa e abrangente. Suporta 15 tipos de apostas, 5 formatos de odds, avaliação de risco em tempo real e comparação de estratégias. Não é necessário registro, completamente gratuita.',
+                'footer-disclaimer': '⚠️ Apostas envolvem riscos, jogue com responsabilidade. Esta ferramenta é apenas para referência e não constitui conselho de investimento. Cumpra as leis e regulamentações locais.'
+            }
+        };
+
+        function switchLanguage(lang) {
+            currentLanguage = lang;
+            document.querySelector('.language-switch .active').classList.remove('active');
+            document.querySelector(`[onclick="switchLanguage('${lang}')"]`).classList.add('active');
+            
+            // 更新页面文本
+            for (const [key, value] of Object.entries(translations[lang])) {
+                const element = document.getElementById(key);
+                if (element) {
+                    element.textContent = value;
+                }
+            }
+            
+            // 更新页面语言属性
+            const langMap = { es: 'es', en: 'en', pt: 'pt-BR' };
+            document.documentElement.lang = langMap[lang] || 'es';
+        }
+
+        function selectBetType(type) {
+            currentBetType = type;
+            document.querySelectorAll('.bet-type-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelector(`[data-type="${type}"]`).classList.add('active');
+            
+            // 根据投注类型调整界面
+            adjustUIForBetType(type);
+        }
+
+        function adjustUIForBetType(type) {
+            const selectionsContainer = document.getElementById('selections-container');
+            const addButton = document.querySelector('.add-selection');
+            
+            if (type === 'single') {
+                // 单式投注只需要一个选择
+                while (selections.length > 1) {
+                    selections.pop();
+                }
+                addButton.style.display = 'none';
+            } else {
+                // 其他类型可以添加多个选择
+                addButton.style.display = 'block';
+                if (selections.length < 2) {
+                    addSelection();
+                }
+            }
+            
+            renderSelections();
+        }
+
+        function addSelection() {
+            const newIndex = selections.length;
+            selections.push({ odds: '', name: '', index: newIndex });
+            renderSelections();
+        }
+
+        function removeSelection(index) {
+            if (selections.length > 1) {
+                selections.splice(index, 1);
+                // 重新分配索引
+                selections.forEach((sel, i) => sel.index = i);
+                renderSelections();
+            }
+        }
+
+        function renderSelections() {
+            const container = document.getElementById('selections-container');
+            container.innerHTML = '';
+            
+            const selectionTexts = {
+                es: { selection: 'Selección', odds: 'Cuotas', name: 'Nombre' },
+                en: { selection: 'Selection', odds: 'Odds', name: 'Name' },
+                pt: { selection: 'Seleção', odds: 'Odds', name: 'Nome' }
+            };
+            
+            const texts = selectionTexts[currentLanguage] || selectionTexts.es;
+            
+            selections.forEach((selection, index) => {
+                const div = document.createElement('div');
+                div.className = 'form-group';
+                div.innerHTML = `
+                    <label>${texts.selection} ${index + 1}</label>
+                    <div class="selection-item">
+                        <div class="odds-input-group" style="flex: 1;">
+                            <input type="text" class="form-control odds-input" placeholder="${texts.odds}" 
+                                   value="${selection.odds}" onchange="updateSelection(${index}, 'odds', this.value)">
+                            <input type="text" class="form-control" placeholder="${texts.name}" 
+                                   value="${selection.name}" onchange="updateSelection(${index}, 'name', this.value)">
+                        </div>
+                        ${selections.length > 1 ? `<button class="remove-selection" onclick="removeSelection(${index})">✕</button>` : ''}
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function updateSelection(index, field, value) {
+            selections[index][field] = value;
+        }
+
+        function toggleAdvanced() {
+            const content = document.getElementById('advanced-content');
+            const isVisible = content.style.display !== 'none';
+            content.style.display = isVisible ? 'none' : 'block';
+            
+            const button = document.getElementById('btn-advanced');
+            const advancedTexts = {
+                es: { show: '⚙️ Opciones Avanzadas', hide: '⚙️ Ocultar Opciones Avanzadas' },
+                en: { show: '⚙️ Advanced Options', hide: '⚙️ Hide Advanced Options' },
+                pt: { show: '⚙️ Opções Avançadas', hide: '⚙️ Ocultar Opções Avançadas' }
+            };
+            
+            const texts = advancedTexts[currentLanguage] || advancedTexts.es;
+            button.textContent = isVisible ? texts.show : texts.hide;
+        }
+
+        function convertOdds(odds, fromFormat, toFormat) {
+            let decimal;
+            
+            // 转换为欧洲盘
+            switch (fromFormat) {
+                case 'decimal':
+                    decimal = parseFloat(odds);
+                    break;
+                case 'fractional':
+                    const parts = odds.split('/');
+                    decimal = (parseFloat(parts[0]) / parseFloat(parts[1])) + 1;
+                    break;
+                case 'american':
+                    const american = parseFloat(odds);
+                    decimal = american > 0 ? (american / 100) + 1 : (100 / Math.abs(american)) + 1;
+                    break;
+                case 'hongkong':
+                    decimal = parseFloat(odds) + 1;
+                    break;
+                case 'malay':
+                    const malay = parseFloat(odds);
+                    decimal = malay > 0 ? malay + 1 : (1 / Math.abs(malay)) + 1;
+                    break;
+            }
+            
+            if (toFormat === 'decimal') return decimal;
+            
+            // 从欧洲盘转换为目标格式
+            switch (toFormat) {
+                case 'probability':
+                    return (1 / decimal) * 100;
+                default:
+                    return decimal;
+            }
+        }
+
+        function calculateBet() {
+            const stake = parseFloat(document.getElementById('stake').value) || 0;
+            const format = document.getElementById('odds-format').value;
+            const commission = parseFloat(document.getElementById('commission').value) || 0;
+            const taxRate = parseFloat(document.getElementById('tax-rate').value) || 0;
+            const bankroll = parseFloat(document.getElementById('bankroll').value) || 0;
+            
+            if (stake <= 0) {
+                const messages = {
+                    es: 'Por favor ingrese una cantidad de apuesta válida',
+                    en: 'Please enter a valid stake amount',
+                    pt: 'Por favor insira um valor de aposta válido'
+                };
+                alert(messages[currentLanguage] || messages.es);
+                return;
+            }
+            
+            // 验证赔率输入
+            const validSelections = selections.filter(sel => sel.odds && sel.odds.trim() !== '');
+            if (validSelections.length === 0) {
+                const messages = {
+                    es: 'Por favor ingrese al menos una cuota válida',
+                    en: 'Please enter at least one valid odds',
+                    pt: 'Por favor insira pelo menos uma odd válida'
+                };
+                alert(messages[currentLanguage] || messages.es);
+                return;
+            }
+            
+            let totalReturn = 0;
+            let totalProbability = 0;
+            
+            try {
+                switch (currentBetType) {
+                    case 'single':
+                        const result = calculateSingle(stake, validSelections[0].odds, format);
+                        totalReturn = result.return;
+                        totalProbability = result.probability;
+                        break;
+                    case 'parlay':
+                    case 'accumulator':
+                        const parlayResult = calculateParlay(stake, validSelections, format);
+                        totalReturn = parlayResult.return;
+                        totalProbability = parlayResult.probability;
+                        break;
+                    default:
+                        // 其他投注类型的计算逻辑
+                        const defaultResult = calculateParlay(stake, validSelections, format);
+                        totalReturn = defaultResult.return;
+                        totalProbability = defaultResult.probability;
+                }
+                
+                // 应用佣金和税收
+                const commissionAmount = totalReturn * (commission / 100);
+                const netReturn = totalReturn - commissionAmount;
+                const taxAmount = Math.max(0, netReturn - stake) * (taxRate / 100);
+                const finalReturn = netReturn - taxAmount;
+                
+                const profit = finalReturn - stake;
+                const roi = ((profit / stake) * 100);
+                
+                // 显示结果
+                displayResults(finalReturn, profit, totalProbability, roi, bankroll, stake);
+                
+                // 生成策略比较
+                generateComparison(stake, validSelections, format);
+                
+            } catch (error) {
+                const messages = {
+                    es: 'Error de cálculo, por favor verifique el formato de las cuotas',
+                    en: 'Calculation error, please check odds format',
+                    pt: 'Erro de cálculo, por favor verifique o formato das odds'
+                };
+                alert(messages[currentLanguage] || messages.es);
+            }
+        }
+
+        function calculateSingle(stake, odds, format) {
+            const decimalOdds = convertOdds(odds, format, 'decimal');
+            const probability = convertOdds(odds, format, 'probability');
+            const totalReturn = stake * decimalOdds;
+            
+            return { return: totalReturn, probability: probability };
+        }
+
+        function calculateParlay(stake, selections, format) {
+            let combinedOdds = 1;
+            let combinedProbability = 1;
+            
+            selections.forEach(selection => {
+                const decimalOdds = convertOdds(selection.odds, format, 'decimal');
+                const probability = convertOdds(selection.odds, format, 'probability') / 100;
+                
+                combinedOdds *= decimalOdds;
+                combinedProbability *= probability;
+            });
+            
+            const totalReturn = stake * combinedOdds;
+            const totalProbability = combinedProbability * 100;
+            
+            return { return: totalReturn, probability: totalProbability };
+        }
+
+        function displayResults(totalReturn, profit, probability, roi, bankroll, stake) {
+            document.getElementById('total-return').textContent = `$${totalReturn.toFixed(2)}`;
+            document.getElementById('profit').textContent = `$${profit.toFixed(2)}`;
+            document.getElementById('probability').textContent = `${probability.toFixed(1)}%`;
+            document.getElementById('roi').textContent = `${roi.toFixed(1)}%`;
+            
+            // 风险评估
+            let riskLevel = 'low';
+            let riskPercentage = 0;
+            
+            if (bankroll > 0) {
+                const riskRatio = stake / bankroll;
+                if (riskRatio > 0.1) {
+                    riskLevel = 'high';
+                    riskPercentage = 80;
+                } else if (riskRatio > 0.05) {
+                    riskLevel = 'medium';
+                    riskPercentage = 50;
+                } else {
+                    riskLevel = 'low';
+                    riskPercentage = 20;
+                }
+            } else {
+                // 基于胜率的风险评估
+                if (probability < 30) {
+                    riskLevel = 'high';
+                    riskPercentage = 80;
+                } else if (probability < 60) {
+                    riskLevel = 'medium';
+                    riskPercentage = 50;
+                } else {
+                    riskLevel = 'low';
+                    riskPercentage = 30;
+                }
+            }
+            
+            const riskFill = document.getElementById('risk-fill');
+            const riskText = document.getElementById('risk-text');
+            
+            riskFill.className = `risk-fill risk-${riskLevel}`;
+            riskFill.style.width = `${riskPercentage}%`;
+            
+            const riskTexts = {
+                es: { low: 'Riesgo Bajo', medium: 'Riesgo Medio', high: 'Riesgo Alto' },
+                en: { low: 'Low Risk', medium: 'Medium Risk', high: 'High Risk' },
+                pt: { low: 'Risco Baixo', medium: 'Risco Médio', high: 'Risco Alto' }
+            };
+            
+            riskText.textContent = riskTexts[currentLanguage][riskLevel];
+            
+            document.getElementById('results').style.display = 'block';
+        }
+
+        function generateComparison(originalStake, selections, format) {
+            const comparisonBody = document.getElementById('comparison-body');
+            comparisonBody.innerHTML = '';
+            
+            // 生成不同投注金额的比较
+            const stakeMultipliers = [0.5, 1, 1.5, 2];
+            
+            stakeMultipliers.forEach((multiplier, index) => {
+                const stake = originalStake * multiplier;
+                let result;
+                
+                if (currentBetType === 'single') {
+                    result = calculateSingle(stake, selections[0].odds, format);
+                } else {
+                    result = calculateParlay(stake, selections, format);
+                }
+                
+                const profit = result.return - stake;
+                const roi = ((profit / stake) * 100);
+                
+                const scenarioTexts = {
+                    es: 'Escenario',
+                    en: 'Scenario',
+                    pt: 'Cenário'
+                };
+                
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${scenarioTexts[currentLanguage] || scenarioTexts.es} ${index + 1}</td>
+                    <td>$${stake.toFixed(2)}</td>
+                    <td>$${result.return.toFixed(2)}</td>
+                    <td>$${profit.toFixed(2)}</td>
+                    <td>${roi.toFixed(1)}%</td>
+                `;
+                comparisonBody.appendChild(row);
+            });
+            
+            document.getElementById('comparison').style.display = 'block';
+        }
+
+        // 事件监听器
+        document.addEventListener('DOMContentLoaded', function() {
+            // 投注类型按钮事件
+            document.querySelectorAll('.bet-type-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    selectBetType(this.dataset.type);
+                });
+            });
+            
+            // 初始化
+            renderSelections();
+            
+            // 显示高级选项
+            document.getElementById('advanced-options').style.display = 'block';
+        });
+
+        // 自动保存用户输入
+        function saveUserData() {
+            const userData = {
+                stake: document.getElementById('stake').value,
+                format: document.getElementById('odds-format').value,
+                selections: selections,
+                betType: currentBetType
+            };
+            localStorage.setItem('betCalculatorData', JSON.stringify(userData));
+        }
+
+        function loadUserData() {
+            const saved = localStorage.getItem('betCalculatorData');
+            if (saved) {
+                const userData = JSON.parse(saved);
+                document.getElementById('stake').value = userData.stake || '';
+                document.getElementById('odds-format').value = userData.format || 'decimal';
+                selections = userData.selections || [{ odds: '', name: '', index: 0 }];
+                currentBetType = userData.betType || 'single';
+                
+                selectBetType(currentBetType);
+                renderSelections();
+            }
+        }
+
+        // 页面加载时恢复数据
+        window.addEventListener('load', loadUserData);
+        
+        // 定期保存数据
+        setInterval(saveUserData, 5000);
+    </script>
+</body>
+</html>
