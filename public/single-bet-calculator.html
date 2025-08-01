@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Apuesta Simple | Single Bet Calculator Pro</title>
+    <meta name="description" content="Calculadora de apuesta simple GRATIS. Calcula ganancias de apuestas individuales con precisión. Soporta múltiples formatos de cuotas. Sin registro.">
+    <meta name="keywords" content="calculadora apuesta simple,single bet calculator,apuesta individual,calcular cuotas simples,betting calculator">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://bet-calculator-betmentor.com/single-bet-calculator.html">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.svg">
+    <link rel="mask-icon" href="/favicon.svg" color="#FF6B35">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Calculadora Apuesta Simple | Single Bet Calculator Pro">
+    <meta property="og:description" content="Calculadora gratuita para apuestas simples. Calcula ganancias instantáneamente.">
+    <meta property="og:url" content="https://bet-calculator-betmentor.com/single-bet-calculator.html">
+    <meta property="og:type" content="website">
+    
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Calculadora de Apuesta Simple",
+      "description": "Calculadora profesional para apuestas individuales con soporte múltiples formatos de cuotas",
+      "url": "https://bet-calculator-betmentor.com/single-bet-calculator.html",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web Browser"
+    }
+    </script>
+    
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .calculator {
+            display: grid;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        label {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        input, select {
+            padding: 12px;
+            border: 2px solid #ecf0f1;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        input:focus, select:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+        }
+        .calculate-btn {
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 20px 0;
+        }
+        .calculate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(52, 152, 219, 0.3);
+        }
+        .results {
+            background: linear-gradient(45deg, #27ae60, #219a52);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 20px;
+            display: none;
+        }
+        .result-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+        .result-item {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+        }
+        .result-value {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎯 Calculadora de Apuesta Simple</h1>
+        
+        <div class="calculator">
+            <div class="form-group">
+                <label for="stake">Cantidad de Apuesta ($)</label>
+                <input type="number" id="stake" placeholder="Ingrese cantidad de apuesta" min="0" step="0.01">
+            </div>
+            
+            <div class="form-group">
+                <label for="odds-format">Formato de Cuotas</label>
+                <select id="odds-format">
+                    <option value="decimal">Decimal (2.50)</option>
+                    <option value="fractional">Fraccionario (3/2)</option>
+                    <option value="american">Americano (+150)</option>
+                    <option value="hongkong">Hong Kong (1.50)</option>
+                    <option value="malay">Malayo (-0.67)</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="odds">Cuotas</label>
+                <input type="text" id="odds" placeholder="Ingrese las cuotas">
+            </div>
+            
+            <button class="calculate-btn" onclick="calculateSingleBet()">🧮 Calcular Apuesta Simple</button>
+        </div>
+        
+        <div class="results" id="results">
+            <h3>Resultados del Cálculo</h3>
+            <div class="result-grid">
+                <div class="result-item">
+                    <div>Retorno Total</div>
+                    <div class="result-value" id="total-return">$0.00</div>
+                </div>
+                <div class="result-item">
+                    <div>Ganancia Neta</div>
+                    <div class="result-value" id="profit">$0.00</div>
+                </div>
+                <div class="result-item">
+                    <div>ROI</div>
+                    <div class="result-value" id="roi">0.0%</div>
+                </div>
+                <div class="result-item">
+                    <div>Probabilidad</div>
+                    <div class="result-value" id="probability">0.0%</div>
+                </div>
+            </div>
+        </div>
+        
+        <a href="/" class="back-link">← Volver a la Calculadora Principal</a>
+        
+        <section style="margin-top: 40px;">
+            <h2>¿Qué es una Apuesta Simple?</h2>
+            <p>Una apuesta simple es el tipo más básico de apuesta deportiva donde seleccionas un solo resultado. Es perfecta para principiantes porque:</p>
+            <ul>
+                <li>✅ Fácil de entender y calcular</li>
+                <li>✅ Menor riesgo comparado con apuestas combinadas</li>
+                <li>✅ Control total sobre tu inversión</li>
+                <li>✅ Ideal para analizar cada apuesta individualmente</li>
+            </ul>
+            
+            <h3>Cómo Usar la Calculadora</h3>
+            <ol>
+                <li>Ingresa el monto que quieres apostar</li>
+                <li>Selecciona el formato de cuotas de tu casa de apuestas</li>
+                <li>Introduce las cuotas del evento</li>
+                <li>Haz clic en "Calcular" para ver tus ganancias potenciales</li>
+            </ol>
+        </section>
+    </div>
+    
+    <script>
+        function convertOdds(odds, fromFormat) {
+            let decimal;
+            switch (fromFormat) {
+                case 'decimal':
+                    decimal = parseFloat(odds);
+                    break;
+                case 'fractional':
+                    const parts = odds.split('/');
+                    decimal = (parseFloat(parts[0]) / parseFloat(parts[1])) + 1;
+                    break;
+                case 'american':
+                    const american = parseFloat(odds);
+                    decimal = american > 0 ? (american / 100) + 1 : (100 / Math.abs(american)) + 1;
+                    break;
+                case 'hongkong':
+                    decimal = parseFloat(odds) + 1;
+                    break;
+                case 'malay':
+                    const malay = parseFloat(odds);
+                    decimal = malay > 0 ? malay + 1 : (1 / Math.abs(malay)) + 1;
+                    break;
+            }
+            return decimal;
+        }
+        
+        function calculateSingleBet() {
+            const stake = parseFloat(document.getElementById('stake').value) || 0;
+            const format = document.getElementById('odds-format').value;
+            const odds = document.getElementById('odds').value;
+            
+            if (stake <= 0 || !odds) {
+                alert('Por favor ingrese una cantidad de apuesta y cuotas válidas');
+                return;
+            }
+            
+            try {
+                const decimalOdds = convertOdds(odds, format);
+                const totalReturn = stake * decimalOdds;
+                const profit = totalReturn - stake;
+                const roi = ((profit / stake) * 100);
+                const probability = (1 / decimalOdds) * 100;
+                
+                document.getElementById('total-return').textContent = `$${totalReturn.toFixed(2)}`;
+                document.getElementById('profit').textContent = `$${profit.toFixed(2)}`;
+                document.getElementById('roi').textContent = `${roi.toFixed(1)}%`;
+                document.getElementById('probability').textContent = `${probability.toFixed(1)}%`;
+                
+                document.getElementById('results').style.display = 'block';
+            } catch (error) {
+                alert('Error de cálculo, por favor verifique el formato de las cuotas');
+            }
+        }
+    </script>
+</body>
+</html>
