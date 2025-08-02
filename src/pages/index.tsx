@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 interface Selection {
   odds: string;
@@ -109,6 +109,8 @@ export default function Home() {
         <meta name="author" content="BetCalc Pro" />
         <link rel="canonical" href="https://betcalc-pro.com/" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/favicon.svg" />
         <link rel="alternate" hrefLang="es" href="https://betcalc-pro.com/" />
         <link rel="alternate" hrefLang="en" href="https://betcalc-pro.com/en/" />
         <link rel="alternate" hrefLang="pt" href="https://betcalc-pro.com/pt/" />

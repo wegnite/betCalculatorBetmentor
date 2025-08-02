@@ -11,6 +11,8 @@ export default function About() {
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://bet-calculator-betmentor.com/about" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/favicon.svg" />
         
       </Head>
 

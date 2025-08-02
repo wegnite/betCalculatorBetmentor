@@ -60,4 +60,20 @@
     <priority>0.1</priority>
   </url>
 
+  <!-- Favicon -->
+  <url>
+    <loc>https://bet-calculator-betmentor.com/favicon.svg</loc>
+    <lastmod>2025-02-02</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.1</priority>
+  </url>
+
+  <!-- Favicon ICO -->
+  <url>
+    <loc>https://bet-calculator-betmentor.com/favicon.ico</loc>
+    <lastmod>2025-02-02</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.1</priority>
+  </url>
+
 </urlset>
