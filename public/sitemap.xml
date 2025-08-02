@@ -7,47 +7,47 @@
   <!-- Homepage -->
   <url>
     <loc>https://bet-calculator-betmentor.com/</loc>
-    <lastmod>2025-01-31</lastmod>
+    <lastmod>2025-02-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <!-- Single Bet Calculator -->
   <url>
-    <loc>https://bet-calculator-betmentor.com/single-bet-calculator.html</loc>
-    <lastmod>2025-01-31</lastmod>
+    <loc>https://bet-calculator-betmentor.com/single-bet-calculator</loc>
+    <lastmod>2025-02-02</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
 
   <!-- Privacy Policy -->
   <url>
-    <loc>https://bet-calculator-betmentor.com/privacy-policy.html</loc>
-    <lastmod>2025-01-31</lastmod>
+    <loc>https://bet-calculator-betmentor.com/privacy-policy</loc>
+    <lastmod>2025-02-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <!-- Terms of Service -->
   <url>
-    <loc>https://bet-calculator-betmentor.com/terms-of-service.html</loc>
-    <lastmod>2025-01-31</lastmod>
+    <loc>https://bet-calculator-betmentor.com/terms-of-service</loc>
+    <lastmod>2025-02-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <!-- About Us -->
   <url>
-    <loc>https://bet-calculator-betmentor.com/about.html</loc>
-    <lastmod>2025-01-31</lastmod>
+    <loc>https://bet-calculator-betmentor.com/about</loc>
+    <lastmod>2025-02-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <!-- Contact -->
   <url>
-    <loc>https://bet-calculator-betmentor.com/contact.html</loc>
-    <lastmod>2025-01-31</lastmod>
+    <loc>https://bet-calculator-betmentor.com/contact</loc>
+    <lastmod>2025-02-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -55,7 +55,7 @@
   <!-- Ads.txt -->
   <url>
     <loc>https://bet-calculator-betmentor.com/ads.txt</loc>
-    <lastmod>2025-01-31</lastmod>
+    <lastmod>2025-02-02</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.1</priority>
   </url>

@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import { useState, useEffect } from 'react';
 
 interface Selection {
@@ -338,6 +339,18 @@ export default function Home() {
         </div>
 
         <footer className="footer">
+          <div className="footer-nav">
+            <h3>🔗 Navigate</h3>
+            <div className="nav-links">
+              <Link href="/" className="footer-link">🏠 Home</Link>
+              <Link href="/about" className="footer-link">📚 About & Strategies</Link>
+              <Link href="/contact" className="footer-link">💬 Contact</Link>
+              <Link href="/single-bet-calculator" className="footer-link">🎯 Single Bet Calculator</Link>
+              <Link href="/privacy-policy" className="footer-link">🔒 Privacy Policy</Link>
+              <Link href="/terms-of-service" className="footer-link">⚖️ Terms of Service</Link>
+            </div>
+          </div>
+          
           <h3>About Bet Calculator BetMentor - Professional Betting Tool</h3>
           <p>Bet Calculator BetMentor is the most accurate and comprehensive free betting calculation tool available. Our bet calculator BetMentor supports 15 bet types, 5 odds formats, real-time risk assessment, and strategy comparison. BetMentor bet calculator requires no registration and is completely free. Trust bet calculator BetMentor for all your betting calculations.</p>
           <p style={{marginTop: '15px', color: '#7f8c8d', fontSize: '14px'}}>
@@ -590,6 +603,37 @@ export default function Home() {
           padding: 30px;
           margin-top: 30px;
           text-align: center;
+        }
+
+        .footer-nav {
+          background: #f8f9fa;
+          border-radius: 10px;
+          padding: 20px;
+          margin-bottom: 30px;
+        }
+
+        .nav-links {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          gap: 15px;
+          margin-top: 15px;
+        }
+
+        .footer-link {
+          display: inline-block;
+          background: linear-gradient(45deg, #3498db, #2980b9);
+          color: white;
+          padding: 12px 20px;
+          border-radius: 25px;
+          text-decoration: none;
+          font-weight: 600;
+          transition: all 0.3s;
+          text-align: center;
+        }
+
+        .footer-link:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
         }
 
         @media (max-width: 768px) {
