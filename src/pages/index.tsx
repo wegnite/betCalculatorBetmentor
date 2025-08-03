@@ -107,13 +107,13 @@ export default function Home() {
         <meta name="keywords" content="bet calculator betmentor,betting calculator,bet calculator,betmentor,sports betting calculator,betting odds calculator,parlay calculator,bet calculator betmentor free" />
         <meta name="robots" content="index, follow" />
         <meta name="author" content="BetCalc Pro" />
-        <link rel="canonical" href="https://betcalc-pro.com/" />
+        <link rel="canonical" href="https://bet-calculator-betmentor.com/" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" sizes="180x180" href="/favicon.svg" />
-        <link rel="alternate" hrefLang="es" href="https://betcalc-pro.com/" />
-        <link rel="alternate" hrefLang="en" href="https://betcalc-pro.com/en/" />
-        <link rel="alternate" hrefLang="pt" href="https://betcalc-pro.com/pt/" />
+        <link rel="alternate" hrefLang="es" href="https://bet-calculator-betmentor.com/" />
+        <link rel="alternate" hrefLang="en" href="https://bet-calculator-betmentor.com/en/" />
+        <link rel="alternate" hrefLang="pt" href="https://bet-calculator-betmentor.com/pt/" />
         
         {/* Google AdSense */}
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6224617757558738" crossOrigin="anonymous"></script>
@@ -122,7 +122,7 @@ export default function Home() {
         <meta property="og:title" content="Bet Calculator BetMentor | Professional Betting Calculator Tool" />
         <meta property="og:description" content="Bet Calculator BetMentor - The ultimate bet calculator and betting mentor. Professional bet calculator BetMentor for accurate betting calculations." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://betcalc-pro.com/" />
+        <meta property="og:url" content="https://bet-calculator-betmentor.com/" />
         
         {/* Structured Data */}
         <script
@@ -134,7 +134,7 @@ export default function Home() {
               "name": "Bet Calculator BetMentor",
               "alternateName": "BetMentor Calculator",
               "description": "Bet Calculator BetMentor - Professional betting calculator and mentor tool for sports betting with advanced calculations and risk assessment",
-              "url": "https://betcalc-pro.com/",
+              "url": "https://bet-calculator-betmentor.com/",
               "applicationCategory": "FinanceApplication",
               "operatingSystem": "Web Browser",
               "offers": {

@@ -60,6 +60,3 @@ Allow: /
 
 # Crawl delay (optional - helps prevent server overload)
 Crawl-delay: 1
-
-# Host directive (helps with canonicalization)
-Host: https://bet-calculator-betmentor.com
