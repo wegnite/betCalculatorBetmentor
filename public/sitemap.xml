@@ -44,6 +44,22 @@
     <priority>0.7</priority>
   </url>
 
+  <!-- Tutoriales de Apuestas Deportivas -->
+  <url>
+    <loc>https://bet-calculator-betmentor.com/tutoriales-apuestas-deportivas</loc>
+    <lastmod>2025-08-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Tipos de Apuestas Deportivas -->
+  <url>
+    <loc>https://bet-calculator-betmentor.com/tipos-apuestas-deportivas</loc>
+    <lastmod>2025-08-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
   <!-- Contact -->
   <url>
     <loc>https://bet-calculator-betmentor.com/contact</loc>
