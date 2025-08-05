@@ -1,9 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import { useState } from 'react';
 
 export default function EstrategiasProfesionales() {
-  const [selectedStrategy, setSelectedStrategy] = useState('');
 
   return (
     <div className="main-page-container">
@@ -86,7 +84,7 @@ export default function EstrategiasProfesionales() {
             <h3>Arbitraje Deportivo</h3>
             <div className="strategy-content">
               <h4>🔹 Identificar Oportunidades</h4>
-              <p>Busca diferencias de cuotas entre casas. Si (1/cuota1) + (1/cuota2) < 1, hay arbitraje.</p>
+              <p>Busca diferencias de cuotas entre casas. Si (1/cuota1) + (1/cuota2) &lt; 1, hay arbitraje.</p>
               
               <h4>🔹 Cálculo de Stakes</h4>
               <p>Stake1 = Bankroll × (1/cuota1) / suma_inversos<br/>

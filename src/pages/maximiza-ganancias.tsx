@@ -1,9 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import { useState } from 'react';
 
 export default function MaximizaGanancias() {
-  const [selectedTactic, setSelectedTactic] = useState('');
 
   return (
     <div className="main-page-container">
@@ -48,8 +46,8 @@ export default function MaximizaGanancias() {
               <h4>🔸 Tracking Semanal</h4>
               <ul>
                 <li>Calcula ROI cada domingo</li>
-                <li>Ajusta strategy si ROI < 10%</li>
-                <li>Aumenta stakes si ROI > 30%</li>
+                <li>Ajusta strategy si ROI &lt; 10%</li>
+                <li>Aumenta stakes si ROI &gt; 30%</li>
                 <li>Mantén registro de 12 meses</li>
               </ul>
 
@@ -117,7 +115,7 @@ export default function MaximizaGanancias() {
               </ul>
               
               <h4>🔸 Análisis de Line Movement</h4>
-              <p>Estudia cómo se mueven las cuotas para identificar el "smart money" vs "public money".</p>
+              <p>Estudia cómo se mueven las cuotas para identificar el &quot;smart money&quot; vs &quot;public money&quot;.</p>
 
               <h4>🔸 Steam Moves</h4>
               <p>Cuando las cuotas cambian drásticamente en poco tiempo, indica información privilegiada.</p>
@@ -188,7 +186,7 @@ export default function MaximizaGanancias() {
               <h3>💪 Mentalidad de Abundancia</h3>
               <p>Los ricos piensan diferente. Ve las apuestas como inversión, no como entretenimiento.</p>
               <div className="mindset-tip">
-                <strong>Ejercicio:</strong> Cada mañana repite: "Soy un inversor profesional que usa información para generar retornos consistentes."
+                <strong>Ejercicio:</strong> Cada mañana repite: &quot;Soy un inversor profesional que usa información para generar retornos consistentes.&quot;
               </div>
             </div>
 
@@ -218,7 +216,7 @@ export default function MaximizaGanancias() {
             <div className="stats">Bankroll inicial: €10,000 | Tiempo: 4 años | Patrimonio actual: €2.1M</div>
             <p>David se especializó en trading de tenis en vivo. Su secreto: identificar breaks de servicio antes que el mercado reaccione.</p>
             <div className="key-insight">
-              <strong>Clave del éxito:</strong> "Desarrollé un modelo que predice breaks con 73% de precisión. Ahora mi ROI mensual promedio es del 22%."
+              <strong>Clave del éxito:</strong> &quot;Desarrollé un modelo que predice breaks con 73% de precisión. Ahora mi ROI mensual promedio es del 22%.&quot;
             </div>
             <div className="current-status">
               <strong>Estado actual:</strong> Gestiona un fondo de €5M para otros inversores, cobrando 20% de ganancias.
@@ -230,7 +228,7 @@ export default function MaximizaGanancias() {
             <div className="stats">Bankroll inicial: €25,000 | Tiempo: 3 años | Patrimonio actual: €1.8M</div>
             <p>Laura automatizó completamente el arbitraje. Su software encuentra y ejecuta oportunidades 24/7.</p>
             <div className="key-insight">
-              <strong>Clave del éxito:</strong> "Invertí €50,000 en desarrollo de software. Ahora genero €15,000-30,000 mensuales automáticamente."
+              <strong>Clave del éxito:</strong> &quot;Invertí €50,000 en desarrollo de software. Ahora genero €15,000-30,000 mensuales automáticamente.&quot;
             </div>
             <div className="current-status">
               <strong>Estado actual:</strong> Vende su software a otros apostadores por €5,000/mes de suscripción.
@@ -242,7 +240,7 @@ export default function MaximizaGanancias() {
             <div className="stats">Bankroll inicial: €5,000 | Tiempo: 5 años | Patrimonio actual: €3.2M</div>
             <p>Roberto creó el modelo de predicción más preciso para fútbol europeo. Su win rate supera el 68%.</p>
             <div className="key-insight">
-              <strong>Clave del éxito:</strong> "Analizo 847 variables por partido. Mi ventaja está en datos que nadie más considera."
+              <strong>Clave del éxito:</strong> &quot;Analizo 847 variables por partido. Mi ventaja está en datos que nadie más considera.&quot;
             </div>
             <div className="current-status">
               <strong>Estado actual:</strong> Vende predicciones premium y gestiona €10M para clientes VIP.

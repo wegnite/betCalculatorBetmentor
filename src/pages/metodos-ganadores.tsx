@@ -1,9 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import { useState } from 'react';
 
 export default function MetodosGanadores() {
-  const [selectedMethod, setSelectedMethod] = useState('');
 
   return (
     <div className="main-page-container">
@@ -37,7 +35,7 @@ export default function MetodosGanadores() {
           <div className="method-card featured">
             <div className="method-icon">🎯</div>
             <h3>Método de Especialización</h3>
-            <div class="success-rate">Tasa de éxito: 73%</div>
+            <div className="success-rate">Tasa de éxito: 73%</div>
             <div className="method-content">
               <h4>🔸 Enfoque Láser</h4>
               <p>Especialízate en máximo 2-3 ligas o deportes. Conoce cada equipo, jugador y estadística como un experto.</p>
@@ -58,7 +56,7 @@ export default function MetodosGanadores() {
           <div className="method-card">
             <div className="method-icon">⚡</div>
             <h3>Método de Reacción Rápida</h3>
-            <div class="success-rate">Tasa de éxito: 68%</div>
+            <div className="success-rate">Tasa de éxito: 68%</div>
             <div className="method-content">
               <h4>🔸 Noticias de Última Hora</h4>
               <p>Aprovecha las noticias antes que las casas ajusten las cuotas.</p>
@@ -79,7 +77,7 @@ export default function MetodosGanadores() {
           <div className="method-card">
             <div className="method-icon">🔄</div>
             <h3>Método de Valor Constante</h3>
-            <div class="success-rate">Tasa de éxito: 65%</div>
+            <div className="success-rate">Tasa de éxito: 65%</div>
             <div className="method-content">
               <h4>🔸 Búsqueda Sistemática</h4>
               <p>Busca value en cada apuesta. Si no hay value, no apuestes.</p>
@@ -92,7 +90,7 @@ export default function MetodosGanadores() {
               <ul>
                 <li>Anota tu probabilidad estimada</li>
                 <li>Calcula el value de cada apuesta</li>
-                <li>Solo apuesta con value > 5%</li>
+                <li>Solo apuesta con value &gt; 5%</li>
                 <li>Revisa mensualmente tu precisión</li>
               </ul>
             </div>
@@ -101,7 +99,7 @@ export default function MetodosGanadores() {
           <div className="method-card">
             <div className="method-icon">📊</div>
             <h3>Método Estadístico Avanzado</h3>
-            <div class="success-rate">Tasa de éxito: 71%</div>
+            <div className="success-rate">Tasa de éxito: 71%</div>
             <div className="method-content">
               <h4>🔸 Métricas Clave</h4>
               <ul>
@@ -128,7 +126,7 @@ export default function MetodosGanadores() {
               <h3>💪 Mentalidad de Hierro</h3>
               <p>Los ganadores no se dejan llevar por las emociones. Tratan cada apuesta como una decisión de negocio.</p>
               <div className="tip">
-                <strong>Ejercicio:</strong> Antes de cada apuesta, respira 3 veces profundamente y pregúntate: "¿Esta es una decisión lógica o emocional?"
+                <strong>Ejercicio:</strong> Antes de cada apuesta, respira 3 veces profundamente y pregúntate: &quot;¿Esta es una decisión lógica o emocional?&quot;
               </div>
             </div>
 
@@ -144,7 +142,7 @@ export default function MetodosGanadores() {
               <h3>🛑 Control de Impulsos</h3>
               <p>Los perdedores apuestan por aburrimiento. Los ganadores solo apuestan cuando hay oportunidad real.</p>
               <div className="tip">
-                <strong>Técnica:</strong> Establece días "sin apuestas" semanales para mantener la disciplina.
+                <strong>Técnica:</strong> Establece días &quot;sin apuestas&quot; semanales para mantener la disciplina.
               </div>
             </div>
           </div>
@@ -158,7 +156,7 @@ export default function MetodosGanadores() {
             <div className="stats">ROI: +24% | Tiempo: 2 años | Apuestas: 847</div>
             <p>Carlos se especializó únicamente en la Premier League. Estudió cada equipo durante 6 meses antes de apostar su primera unidad. Su método: análisis profundo de lesiones, motivación y condiciones climáticas.</p>
             <div className="key-insight">
-              <strong>Clave del éxito:</strong> "Conocía mejor que las casas el impacto real de cada lesión en el rendimiento del equipo."
+              <strong>Clave del éxito:</strong> &quot;Conocía mejor que las casas el impacto real de cada lesión en el rendimiento del equipo.&quot;
             </div>
           </div>
 
@@ -167,7 +165,7 @@ export default function MetodosGanadores() {
             <div className="stats">ROI: +31% | Tiempo: 18 meses | Apuestas: 312</div>
             <p>Ana desarrolló un sistema de alertas para noticias de última hora. Su especialidad: apostar en los primeros 10 minutos después de noticias de lesiones importantes.</p>
             <div className="key-insight">
-              <strong>Clave del éxito:</strong> "Velocidad + conocimiento del impacto real de cada jugador en su equipo."
+              <strong>Clave del éxito:</strong> &quot;Velocidad + conocimiento del impacto real de cada jugador en su equipo.&quot;
             </div>
           </div>
 
@@ -176,7 +174,7 @@ export default function MetodosGanadores() {
             <div className="stats">ROI: +19% | Tiempo: 3 años | Apuestas: 1,200+</div>
             <p>Miguel creó un modelo estadístico que predice resultados con 67% de precisión. Su ventaja: combina métricas tradicionales con datos avanzados.</p>
             <div className="key-insight">
-              <strong>Clave del éxito:</strong> "Paciencia para desarrollar el modelo y disciplina para seguirlo siempre."
+              <strong>Clave del éxito:</strong> &quot;Paciencia para desarrollar el modelo y disciplina para seguirlo siempre.&quot;
             </div>
           </div>
         </section>
