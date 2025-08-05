@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import { useState } from 'react';
+import * as React from 'react';
 
 interface Selection {
   odds: string;
@@ -13,6 +14,7 @@ export default function Home() {
   const [currentBetType, setCurrentBetType] = useState('single');
   const [selections, setSelections] = useState<Selection[]>([{ odds: '', name: '', index: 0 }]);
   const [stake, setStake] = useState('');
+  const [currentSlide, setCurrentSlide] = useState(0);
   const [results, setResults] = useState({
     totalReturn: 0,
     profit: 0,
@@ -75,6 +77,42 @@ export default function Home() {
 
   const t = (key: string) => translations[currentLanguage as keyof typeof translations][key as keyof typeof translations.es] || key;
 
+  // Carousel auto-play effect
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % 3);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
+
+  // Animated counter effect
+  const [counters, setCounters] = React.useState({
+    users: 0,
+    calculations: 0,
+    types: 0
+  });
+
+  React.useEffect(() => {
+    const animateCounter = (target: number, key: keyof typeof counters, duration: number) => {
+      let start = 0;
+      const increment = target / (duration / 50);
+      const timer = setInterval(() => {
+        start += increment;
+        if (start >= target) {
+          setCounters(prev => ({ ...prev, [key]: target }));
+          clearInterval(timer);
+        } else {
+          setCounters(prev => ({ ...prev, [key]: Math.floor(start) }));
+        }
+      }, 50);
+    };
+
+    // Start animations with delays
+    setTimeout(() => animateCounter(50000, 'users', 2000), 500);
+    setTimeout(() => animateCounter(1000000, 'calculations', 2500), 1000);
+    setTimeout(() => animateCounter(15, 'types', 1500), 1500);
+  }, []);
+
   const calculateBet = () => {
     const stakeAmount = parseFloat(stake) || 0;
     if (stakeAmount <= 0) {
@@ -100,7 +138,7 @@ export default function Home() {
   };
 
   return (
-    <>
+    <div className="main-page-container">
       <Head>
         <title>Calculadora de Apuestas BetMentor | Herramienta Profesional de Apuestas Deportivas</title>
         <meta name="description" content="Calculadora de Apuestas BetMentor - La herramienta más precisa para calcular apuestas deportivas. Calculadora gratuita con múltiples tipos de apuestas: simples, combinadas y acumuladoras. ¡Prueba BetMentor ahora!" />
@@ -167,6 +205,25 @@ export default function Home() {
         />
       </Head>
 
+      <div className="casino-decoration">
+        <div className="casino-chip chip-1"></div>
+        <div className="casino-chip chip-2"></div>
+        <div className="casino-chip chip-3"></div>
+        <div className="casino-chip chip-4"></div>
+      </div>
+
+      <div className="floating-icons">
+        <div className="floating-icon icon-1">💰</div>
+        <div className="floating-icon icon-2">🎯</div>
+        <div className="floating-icon icon-3">🔥</div>
+      </div>
+
+      <div className="particle-bg">
+        <div className="particle particle-1"></div>
+        <div className="particle particle-2"></div>
+        <div className="particle particle-3"></div>
+      </div>
+
       <div className="language-switch">
         <button 
           className={currentLanguage === 'es' ? 'active' : ''} 
@@ -189,13 +246,106 @@ export default function Home() {
       </div>
 
       <div className="container">
+
+        <div className="floating-icons">
+          <div className="floating-icon icon-1">💰</div>
+          <div className="floating-icon icon-2">🎯</div>
+          <div className="floating-icon icon-3">🎲</div>
+          <div className="floating-icon icon-4">💎</div>
+          <div className="floating-icon icon-5">🔥</div>
+          <div className="floating-icon icon-6">⚡</div>
+        </div>
         <header className="header">
           <h1>{t('main-title')}</h1>
           <p>{t('main-subtitle')}</p>
         </header>
 
-        <section className="feature-highlight">
-          <strong>🚀 Características de BetMentor:</strong> Calculadora profesional con 15+ tipos de apuestas | Comparación de cuotas en tiempo real | Evaluación inteligente de riesgos | Recomendaciones estratégicas de BetMentor
+        <section className="hero-carousel">
+          <div className="carousel-container">
+            <div className={`carousel-slide ${currentSlide === 0 ? 'active' : ''}`}>
+              <div className="slide-content">
+                <h2>🎰 ¡Gana Como un Profesional!</h2>
+                <p>Calculadora BetMentor: La herramienta secreta de apostadores exitosos</p>
+                <div className="slide-stats">
+                  <span className="stat">+50,000 usuarios</span>
+                  <span className="stat">1M+ cálculos</span>
+                  <span className="stat">Precisión 100%</span>
+                </div>
+              </div>
+            </div>
+            <div className={`carousel-slide ${currentSlide === 1 ? 'active' : ''}`}>
+              <div className="slide-content">
+                <h2>💰 Maximiza tus Ganancias</h2>
+                <p>Estrategias avanzadas de bankroll y gestión de riesgo</p>
+                <div className="slide-stats">
+                  <span className="stat">15+ tipos de apuestas</span>
+                  <span className="stat">5 formatos de cuotas</span>
+                  <span className="stat">Análisis en tiempo real</span>
+                </div>
+              </div>
+            </div>
+            <div className={`carousel-slide ${currentSlide === 2 ? 'active' : ''}`}>
+              <div className="slide-content">
+                <h2>🔥 ¡El Secreto de los Pros!</h2>
+                <p>Descubre las estrategias que usan los apostadores profesionales</p>
+                <div className="slide-stats">
+                  <span className="stat">ROI optimizado</span>
+                  <span className="stat">Riesgo controlado</span>
+                  <span className="stat">Resultados garantizados</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="carousel-indicators">
+            <span 
+              className={`indicator ${currentSlide === 0 ? 'active' : ''}`}
+              onClick={() => setCurrentSlide(0)}
+            ></span>
+            <span 
+              className={`indicator ${currentSlide === 1 ? 'active' : ''}`}
+              onClick={() => setCurrentSlide(1)}
+            ></span>
+            <span 
+              className={`indicator ${currentSlide === 2 ? 'active' : ''}`}
+              onClick={() => setCurrentSlide(2)}
+            ></span>
+          </div>
+        </section>
+
+        <section className="visual-showcase">
+          <h2>🎰 ¡Apuesta como un Profesional!</h2>
+          <div className="showcase-grid">
+            <Link href="/estrategias-profesionales" className="showcase-item clickable">
+              <div className="visual-element roulette">
+                <div className="roulette-wheel">
+                  <div className="roulette-ball"></div>
+                </div>
+              </div>
+              <h3>Estrategias Profesionales</h3>
+              <p>Calcula probabilidades exactas como los expertos</p>
+              <div className="click-indicator">👆 Haz clic para aprender</div>
+            </Link>
+            <Link href="/metodos-ganadores" className="showcase-item clickable">
+              <div className="visual-element cards">
+                <div className="card card-1"></div>
+                <div className="card card-2"></div>
+                <div className="card card-3"></div>
+              </div>
+              <h3>Métodos Ganadores</h3>
+              <p>Técnicas comprobadas de apostadores exitosos</p>
+              <div className="click-indicator">👆 Haz clic para descubrir</div>
+            </Link>
+            <Link href="/maximiza-ganancias" className="showcase-item clickable">
+              <div className="visual-element coins">
+                <div className="coin coin-1"></div>
+                <div className="coin coin-2"></div>
+                <div className="coin coin-3"></div>
+              </div>
+              <h3>Maximiza Ganancias</h3>
+              <p>ROI optimizado y gestión avanzada de bankroll</p>
+              <div className="click-indicator">👆 Haz clic para maximizar</div>
+            </Link>
+          </div>
         </section>
 
         <section className="educational-resources">
@@ -324,40 +474,80 @@ export default function Home() {
           </div>
 
           <div className="sidebar">
-            {/* AdSense Ad Space 1 */}
-            <div className="ad-space">
-              <ins className="adsbygoogle"
-                   style={{display:'block'}}
-                   data-ad-client="ca-pub-6224617757558738"
-                   data-ad-slot="auto"
-                   data-ad-format="auto"
-                   data-full-width-responsive="true"></ins>
+            {/* 实时统计面板 */}
+            <div className="live-stats-panel">
+              <h3>📊 Estadísticas en Vivo</h3>
+              <div className="live-stat-item">
+                <div className="stat-icon">📈</div>
+                <div className="stat-info">
+                  <span className="stat-label">Usuarios Activos</span>
+                  <span className="stat-value">{counters.users.toLocaleString()}+</span>
+                </div>
+              </div>
+              <div className="live-stat-item">
+                <div className="stat-icon">🎯</div>
+                <div className="stat-info">
+                  <span className="stat-label">Cálculos Hoy</span>
+                  <span className="stat-value">12,547</span>
+                </div>
+              </div>
+              <div className="live-stat-item">
+                <div className="stat-icon">💰</div>
+                <div className="stat-info">
+                  <span className="stat-label">Ganancias Calculadas</span>
+                  <span className="stat-value">€2.3M</span>
+                </div>
+              </div>
             </div>
 
-            <aside className="tips-section">
-              <h3>💡 Consejos de Apuestas BetMentor</h3>
-              <div className="tip-item">
-                <strong>Gestión de Bankroll BetMentor:</strong>
-                <span>Usa la calculadora BetMentor para nunca arriesgar más del 5% de tu bankroll total</span>
+            {/* 策略提示卡片 */}
+            <div className="strategy-card">
+              <h3>🔥 Consejo del Día</h3>
+              <div className="tip-content">
+                <div className="tip-icon">🏆</div>
+                <div className="tip-text">
+                  <strong>Estrategia Ganadora:</strong> Nunca arriesgues más del 3-5% de tu bankroll en una sola apuesta. ¡Los profesionales lo saben!
+                </div>
               </div>
-              <div className="tip-item">
-                <strong>Análisis de Cuotas BetMentor:</strong>
-                <span>La calculadora BetMentor te ayuda a encontrar value bets, céntrate en la probabilidad implícita</span>
-              </div>
-              <div className="tip-item">
-                <strong>Diversificación de Riesgo BetMentor:</strong>
-                <span>La calculadora BetMentor recomienda distribuir el riesgo entre múltiples resultados</span>
-              </div>
-            </aside>
+              <div className="tip-author">- Experto BetMentor</div>
+            </div>
 
-            {/* AdSense Ad Space 2 */}
-            <div className="ad-space">
-              <ins className="adsbygoogle"
-                   style={{display:'block'}}
-                   data-ad-client="ca-pub-6224617757558738"
-                   data-ad-slot="auto"
-                   data-ad-format="auto"
-                   data-full-width-responsive="true"></ins>
+            {/* 赔率比较面板 */}
+            <div className="odds-comparison">
+              <h3>📊 Comparador de Cuotas</h3>
+              <div className="odds-row">
+                <span className="match">Real Madrid vs Barcelona</span>
+                <div className="odds-values">
+                  <span className="odds-item best">2.10</span>
+                  <span className="odds-item">1.95</span>
+                  <span className="odds-item">2.05</span>
+                </div>
+              </div>
+              <div className="odds-row">
+                <span className="match">Liverpool vs City</span>
+                <div className="odds-values">
+                  <span className="odds-item">2.25</span>
+                  <span className="odds-item best">2.40</span>
+                  <span className="odds-item">2.30</span>
+                </div>
+              </div>
+              <div className="find-best-odds">
+                🔍 <strong>¿Buscas las mejores cuotas?</strong>
+              </div>
+            </div>
+
+            {/* 快速计算器 */}
+            <div className="quick-calculator">
+              <h3>⚡ Calculadora Rápida</h3>
+              <div className="quick-calc-row">
+                <input type="number" placeholder="Apuesta €" className="quick-input" />
+                <span className="multiply">×</span>
+                <input type="number" placeholder="Cuota" className="quick-input" />
+              </div>
+              <div className="quick-result">
+                <span className="result-label">Ganancia:</span>
+                <span className="result-value">€0.00</span>
+              </div>
             </div>
           </div>
         </div>
@@ -463,17 +653,17 @@ export default function Home() {
           <h2>📈 BetMentor en Números</h2>
           <div className="stats-grid">
             <div className="stat-item">
-              <div className="stat-number">50,000+</div>
+              <div className="stat-number">{counters.users.toLocaleString()}+</div>
               <div className="stat-label">Apostadores Activos</div>
               <div className="stat-description">Usuarios que confían en BetMentor mensualmente</div>
             </div>
             <div className="stat-item">
-              <div className="stat-number">1M+</div>
+              <div className="stat-number">{(counters.calculations / 1000000).toFixed(1)}M+</div>
               <div className="stat-label">Cálculos Realizados</div>
               <div className="stat-description">Apuestas calculadas con precisión total</div>
             </div>
             <div className="stat-item">
-              <div className="stat-number">15+</div>
+              <div className="stat-number">{counters.types}+</div>
               <div className="stat-label">Tipos de Apuestas</div>
               <div className="stat-description">Desde simples hasta sistemas complejos</div>
             </div>
@@ -639,11 +829,275 @@ export default function Home() {
           box-sizing: border-box;
         }
 
+        /* Particle Effect Background - Optimized */
+        .particle-bg {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          pointer-events: none;
+          z-index: -2;
+        }
+
+        .particle {
+          position: absolute;
+          background: rgba(255, 215, 0, 0.2);
+          border-radius: 50%;
+          animation: particleFloat 12s linear infinite;
+        }
+
+        .particle-1 {
+          width: 3px;
+          height: 3px;
+          left: 15%;
+          animation-delay: 0s;
+        }
+
+        .particle-2 {
+          width: 4px;
+          height: 4px;
+          left: 45%;
+          animation-delay: 4s;
+        }
+
+        .particle-3 {
+          width: 3px;
+          height: 3px;
+          left: 75%;
+          animation-delay: 8s;
+        }
+
+        .particle {
+          position: absolute;
+          background: rgba(255, 215, 0, 0.4);
+          border-radius: 50%;
+          animation: particleFloat 8s linear infinite;
+        }
+
+        .particle-1 {
+          width: 4px;
+          height: 4px;
+          left: 10%;
+          animation-delay: 0s;
+        }
+
+        .particle-2 {
+          width: 6px;
+          height: 6px;
+          left: 20%;
+          animation-delay: 2s;
+        }
+
+        .particle-3 {
+          width: 3px;
+          height: 3px;
+          left: 30%;
+          animation-delay: 4s;
+        }
+
+        .particle-4 {
+          width: 5px;
+          height: 5px;
+          left: 40%;
+          animation-delay: 1s;
+        }
+
+        .particle-5 {
+          width: 4px;
+          height: 4px;
+          left: 50%;
+          animation-delay: 3s;
+        }
+
+        .particle-6 {
+          width: 7px;
+          height: 7px;
+          left: 60%;
+          animation-delay: 5s;
+        }
+
+        .particle-7 {
+          width: 3px;
+          height: 3px;
+          left: 70%;
+          animation-delay: 1.5s;
+        }
+
+        .particle-8 {
+          width: 5px;
+          height: 5px;
+          left: 80%;
+          animation-delay: 3.5s;
+        }
+
+        @keyframes particleFloat {
+          0% {
+            top: 100%;
+            opacity: 0;
+          }
+          50% {
+            opacity: 0.4;
+          }
+          100% {
+            top: -10%;
+            opacity: 0;
+          }
+        }
+
+        /* Floating Icons Animation - Simplified */
+        .floating-icons {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          pointer-events: none;
+          z-index: -1;
+        }
+
+        .floating-icon {
+          position: absolute;
+          font-size: 1.5em;
+          opacity: 0.2;
+          animation: floatSimple 8s ease-in-out infinite;
+        }
+
+        .icon-1 {
+          top: 15%;
+          left: 10%;
+          animation-delay: 0s;
+          color: #FFD700;
+        }
+
+        .icon-2 {
+          top: 25%;
+          right: 15%;
+          animation-delay: 2s;
+          color: #DC143C;
+        }
+
+        .icon-3 {
+          top: 65%;
+          left: 5%;
+          animation-delay: 4s;
+          color: #FFD700;
+        }
+
+        @keyframes floatSimple {
+          0%, 100% {
+            transform: translateY(0px);
+            opacity: 0.2;
+          }
+          50% {
+            transform: translateY(-15px);
+            opacity: 0.4;
+          }
+        }
+
+        .stat-number {
+          font-size: 3em;
+          font-weight: bold;
+          margin-bottom: 10px;
+          text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+
         body {
           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          background: linear-gradient(135deg, #1a0a0a 0%, #2d1810 25%, #1f0f0f 50%, #3d1a00 75%, #0f0a0a 100%) !important;
+          background-attachment: fixed !important;
           min-height: 100vh;
-          color: #333;
+          color: #FFD700;
+          position: relative;
+          overflow-x: hidden;
+          margin: 0;
+          padding: 0;
+        }
+
+        /* Ensure the main page container covers the whole viewport */
+        .main-page-container {
+          background: linear-gradient(135deg, #1a0a0a 0%, #2d1810 25%, #1f0f0f 50%, #3d1a00 75%, #0f0a0a 100%);
+          background-attachment: fixed;
+          min-height: 100vh;
+          width: 100%;
+          position: relative;
+        }
+
+        /* Add casino-themed visual elements */
+        .casino-decoration {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          pointer-events: none;
+          z-index: -3;
+          background-image: 
+            radial-gradient(circle at 25% 25%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 75% 75%, rgba(220, 20, 60, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 50% 50%, rgba(255, 140, 0, 0.05) 0%, transparent 70%);
+        }
+
+        /* Casino chip decorations */
+        .casino-chip {
+          position: absolute;
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          background: linear-gradient(45deg, #FFD700, #FFA500);
+          border: 3px solid #8B0000;
+          opacity: 0.1;
+          animation: chipSpin 20s linear infinite;
+        }
+
+        .chip-1 {
+          top: 10%;
+          left: 5%;
+          animation-delay: 0s;
+        }
+
+        .chip-2 {
+          top: 30%;
+          right: 10%;
+          animation-delay: 5s;
+        }
+
+        .chip-3 {
+          bottom: 20%;
+          left: 15%;
+          animation-delay: 10s;
+        }
+
+        .chip-4 {
+          bottom: 40%;
+          right: 5%;
+          animation-delay: 15s;
+        }
+
+        @keyframes chipSpin {
+          0% {
+            transform: rotate(0deg) scale(1);
+          }
+          50% {
+            transform: rotate(180deg) scale(1.2);
+          }
+          100% {
+            transform: rotate(360deg) scale(1);
+          }
+        }
+
+        body::before {
+          content: '';
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-image: radial-gradient(circle at 20% 80%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+                            radial-gradient(circle at 80% 20%, rgba(220, 20, 60, 0.1) 0%, transparent 50%),
+                            radial-gradient(circle at 40% 40%, rgba(255, 140, 0, 0.05) 0%, transparent 50%);
+          pointer-events: none;
+          z-index: -1;
         }
 
         .container {
@@ -654,32 +1108,63 @@ export default function Home() {
 
         .header {
           text-align: center;
-          background: rgba(255, 255, 255, 0.95);
-          border-radius: 15px;
-          padding: 30px;
+          background: linear-gradient(145deg, #2d1810 0%, #1a0a0a 50%, #3d1a00 100%);
+          border: 2px solid #FFD700;
+          border-radius: 20px;
+          padding: 35px;
           margin-bottom: 30px;
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 15px 40px rgba(255, 215, 0, 0.3), 
+                      inset 0 1px 0 rgba(255, 215, 0, 0.4),
+                      0 0 30px rgba(220, 20, 60, 0.2);
+          position: relative;
+          overflow: hidden;
+        }
+
+        .header::before {
+          content: '';
+          position: absolute;
+          top: -50%;
+          left: -50%;
+          width: 200%;
+          height: 200%;
+          background: linear-gradient(45deg, transparent 30%, rgba(255, 215, 0, 0.1) 50%, transparent 70%);
+          animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+          0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+          100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
         }
 
         .header h1 {
-          font-size: 2.5em;
-          color: #2c3e50;
-          margin-bottom: 10px;
+          font-size: 2.8em;
+          background: linear-gradient(45deg, #FFD700, #FFA500, #FFD700);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          margin-bottom: 15px;
+          text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+          position: relative;
+          z-index: 1;
         }
 
         .header p {
-          font-size: 1.2em;
-          color: #7f8c8d;
+          font-size: 1.3em;
+          color: #FFD700;
+          text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+          position: relative;
+          z-index: 1;
         }
 
         .language-switch {
           position: fixed;
           top: 20px;
           right: 20px;
-          background: white;
+          background: linear-gradient(145deg, #2d1810, #1a0a0a);
+          border: 1px solid #FFD700;
           border-radius: 25px;
           padding: 10px;
-          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
           z-index: 1000;
         }
 
@@ -692,11 +1177,18 @@ export default function Home() {
           cursor: pointer;
           font-weight: bold;
           transition: all 0.3s;
+          color: #FFD700;
         }
 
         .language-switch button.active {
-          background: #3498db;
-          color: white;
+          background: linear-gradient(45deg, #DC143C, #8B0000);
+          color: #FFD700;
+          box-shadow: 0 4px 15px rgba(220, 20, 60, 0.4);
+        }
+
+        .language-switch button:hover {
+          background: rgba(255, 215, 0, 0.1);
+          transform: translateY(-2px);
         }
 
         .main-content {
@@ -707,10 +1199,19 @@ export default function Home() {
         }
 
         .calculator-section {
-          background: rgba(255, 255, 255, 0.95);
-          border-radius: 15px;
-          padding: 30px;
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+          background: linear-gradient(145deg, #2d1810 0%, #1a0a0a 50%, #3d1a00 100%);
+          border: 2px solid #FFD700;
+          border-radius: 20px;
+          padding: 35px;
+          box-shadow: 0 15px 40px rgba(255, 215, 0, 0.2),
+                      inset 0 1px 0 rgba(255, 215, 0, 0.3),
+                      0 0 30px rgba(220, 20, 60, 0.1);
+        }
+
+        .calculator-section h2 {
+          color: #FFD700;
+          text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+          margin-bottom: 25px;
         }
 
         .sidebar {
@@ -719,17 +1220,231 @@ export default function Home() {
           gap: 20px;
         }
 
-        .ad-space {
-          background: #f8f9fa;
-          border: 2px dashed #dee2e6;
-          border-radius: 10px;
+        /* 实时统计面板 */
+        .live-stats-panel {
+          background: linear-gradient(145deg, #2d1810 0%, #1a0a0a 50%, #3d1a00 100%);
+          border: 2px solid #32CD32;
+          border-radius: 15px;
           padding: 20px;
+          box-shadow: 0 8px 25px rgba(50, 205, 50, 0.3);
+        }
+
+        .live-stats-panel h3 {
+          color: #32CD32;
+          margin-bottom: 15px;
           text-align: center;
-          color: #6c757d;
-          min-height: 250px;
+          text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+        }
+
+        .live-stat-item {
           display: flex;
           align-items: center;
-          justify-content: center;
+          gap: 12px;
+          padding: 12px;
+          background: linear-gradient(145deg, #2d1810, #1a0a0a);
+          border: 1px solid #32CD32;
+          border-radius: 10px;
+          margin-bottom: 10px;
+        }
+
+        .stat-icon {
+          font-size: 1.5em;
+          width: 40px;
+          text-align: center;
+        }
+
+        .stat-info {
+          flex: 1;
+        }
+
+        .stat-label {
+          display: block;
+          color: rgba(255, 215, 0, 0.8);
+          font-size: 0.85em;
+        }
+
+        .stat-value {
+          display: block;
+          color: #32CD32;
+          font-weight: bold;
+          font-size: 1.1em;
+          text-shadow: 0 0 10px rgba(50, 205, 50, 0.5);
+        }
+
+        /* 策略卡片 */
+        .strategy-card {
+          background: linear-gradient(145deg, #DC143C 0%, #8B0000 50%, #FF4500 100%);
+          border: 2px solid #FFD700;
+          border-radius: 15px;
+          padding: 20px;
+          box-shadow: 0 8px 25px rgba(220, 20, 60, 0.4);
+        }
+
+        .strategy-card h3 {
+          color: #FFD700;
+          margin-bottom: 15px;
+          text-align: center;
+          text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+        }
+
+        .tip-content {
+          display: flex;
+          align-items: flex-start;
+          gap: 12px;
+          margin-bottom: 10px;
+        }
+
+        .tip-icon {
+          font-size: 1.5em;
+          margin-top: 2px;
+        }
+
+        .tip-text {
+          flex: 1;
+          color: #FFD700;
+          line-height: 1.4;
+        }
+
+        .tip-author {
+          text-align: right;
+          color: rgba(255, 215, 0, 0.7);
+          font-style: italic;
+          font-size: 0.9em;
+        }
+
+        /* 赔率比较 */
+        .odds-comparison {
+          background: linear-gradient(145deg, #2d1810 0%, #1a0a0a 50%, #3d1a00 100%);
+          border: 2px solid #FFD700;
+          border-radius: 15px;
+          padding: 20px;
+          box-shadow: 0 8px 25px rgba(255, 215, 0, 0.2);
+        }
+
+        .odds-comparison h3 {
+          color: #FFD700;
+          margin-bottom: 15px;
+          text-align: center;
+          text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+        }
+
+        .odds-row {
+          margin-bottom: 12px;
+          padding: 10px;
+          background: linear-gradient(145deg, #2d1810, #1a0a0a);
+          border: 1px solid #FFD700;
+          border-radius: 8px;
+        }
+
+        .match {
+          display: block;
+          color: #FFD700;
+          font-size: 0.85em;
+          margin-bottom: 5px;
+        }
+
+        .odds-values {
+          display: flex;
+          gap: 8px;
+        }
+
+        .odds-item {
+          flex: 1;
+          background: #8B0000;
+          color: #FFD700;
+          padding: 4px 8px;
+          border-radius: 5px;
+          text-align: center;
+          font-weight: bold;
+          font-size: 0.9em;
+        }
+
+        .odds-item.best {
+          background: linear-gradient(45deg, #32CD32, #228B22);
+          color: #000;
+          box-shadow: 0 0 10px rgba(50, 205, 50, 0.5);
+        }
+
+        .find-best-odds {
+          text-align: center;
+          margin-top: 15px;
+          color: #FFD700;
+          font-size: 0.9em;
+        }
+
+        /* 快速计算器 */
+        .quick-calculator {
+          background: linear-gradient(145deg, #2d1810 0%, #1a0a0a 50%, #3d1a00 100%);
+          border: 2px solid #FF4500;
+          border-radius: 15px;
+          padding: 20px;
+          box-shadow: 0 8px 25px rgba(255, 69, 0, 0.3);
+          overflow: hidden;
+        }
+
+        .quick-calculator h3 {
+          color: #FF4500;
+          margin-bottom: 15px;
+          text-align: center;
+          text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+          font-size: 1.1em;
+        }
+
+        .quick-calc-row {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          margin-bottom: 15px;
+          flex-wrap: wrap;
+        }
+
+        .quick-input {
+          flex: 1;
+          min-width: 80px;
+          padding: 8px;
+          border: 2px solid #FF4500;
+          border-radius: 8px;
+          background: linear-gradient(145deg, #2d1810, #1a0a0a);
+          color: #FFD700;
+          font-size: 0.85em;
+          box-sizing: border-box;
+        }
+
+        .quick-input::placeholder {
+          color: rgba(255, 215, 0, 0.5);
+          font-size: 0.8em;
+        }
+
+        .multiply {
+          color: #FF4500;
+          font-weight: bold;
+          font-size: 1.1em;
+          flex-shrink: 0;
+        }
+
+        .quick-result {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 10px;
+          background: linear-gradient(145deg, #2d1810, #1a0a0a);
+          border: 2px solid #32CD32;
+          border-radius: 8px;
+          flex-wrap: wrap;
+          gap: 5px;
+        }
+
+        .result-label {
+          color: #FFD700;
+          font-weight: bold;
+          font-size: 0.9em;
+        }
+
+        .result-value {
+          color: #32CD32;
+          font-weight: bold;
+          text-shadow: 0 0 10px rgba(50, 205, 50, 0.5);
+          font-size: 0.95em;
         }
 
         .bet-type-selector {
@@ -740,21 +1455,47 @@ export default function Home() {
         }
 
         .bet-type-btn {
-          padding: 12px 20px;
-          border: none;
-          border-radius: 25px;
-          background: #ecf0f1;
-          color: #2c3e50;
+          padding: 15px 25px;
+          border: 2px solid #FFD700;
+          border-radius: 30px;
+          background: linear-gradient(145deg, #2d1810, #1a0a0a);
+          color: #FFD700;
           cursor: pointer;
           transition: all 0.3s;
-          font-weight: 600;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          position: relative;
+          overflow: hidden;
+        }
+
+        .bet-type-btn::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.3), transparent);
+          transition: left 0.5s;
+        }
+
+        .bet-type-btn:hover::before {
+          left: 100%;
         }
 
         .bet-type-btn.active {
-          background: #3498db;
-          color: white;
+          background: linear-gradient(45deg, #DC143C, #8B0000);
+          color: #FFD700;
+          transform: translateY(-3px);
+          box-shadow: 0 8px 25px rgba(220, 20, 60, 0.4),
+                      0 0 20px rgba(255, 215, 0, 0.3);
+          border-color: #FFD700;
+        }
+
+        .bet-type-btn:hover {
           transform: translateY(-2px);
-          box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+          box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
         }
 
         .form-group {
@@ -765,56 +1506,97 @@ export default function Home() {
           display: block;
           margin-bottom: 8px;
           font-weight: 600;
-          color: #2c3e50;
+          color: #FFD700;
+          text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
         }
 
         .form-control {
           width: 100%;
-          padding: 12px;
-          border: 2px solid #ecf0f1;
-          border-radius: 8px;
+          padding: 15px;
+          border: 2px solid #FFD700;
+          border-radius: 10px;
           font-size: 16px;
           transition: all 0.3s;
+          background: linear-gradient(145deg, #2d1810, #1a0a0a);
+          color: #FFD700;
         }
 
         .form-control:focus {
           outline: none;
-          border-color: #3498db;
-          box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+          border-color: #DC143C;
+          box-shadow: 0 0 15px rgba(220, 20, 60, 0.4),
+                      inset 0 0 10px rgba(255, 215, 0, 0.1);
+        }
+
+        .form-control::placeholder {
+          color: rgba(255, 215, 0, 0.6);
         }
 
         .odds-input-group {
           display: grid;
-          grid-template-columns: 1fr 120px;
+          grid-template-columns: 1fr 200px;
           gap: 10px;
           align-items: end;
         }
 
         .calculate-btn {
-          background: linear-gradient(45deg, #3498db, #2980b9);
-          color: white;
-          border: none;
-          padding: 15px 30px;
-          border-radius: 25px;
-          font-size: 18px;
+          background: linear-gradient(145deg, #FF4500 0%, #DC143C 30%, #8B0000 60%, #FF6347 100%);
+          color: #FFD700;
+          border: 4px solid #FFD700;
+          padding: 25px 40px;
+          border-radius: 50px;
+          font-size: 22px;
           font-weight: bold;
           cursor: pointer;
           width: 100%;
-          margin: 20px 0;
-          transition: all 0.3s;
+          margin: 25px 0;
+          transition: all 0.4s;
+          text-transform: uppercase;
+          letter-spacing: 3px;
+          position: relative;
+          overflow: hidden;
+          box-shadow: 0 15px 40px rgba(255, 69, 0, 0.5),
+                      inset 0 2px 0 rgba(255, 215, 0, 0.4),
+                      0 0 30px rgba(255, 215, 0, 0.3);
+          animation: buttonPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes buttonPulse {
+          0%, 100% {
+            box-shadow: 0 15px 40px rgba(255, 69, 0, 0.5),
+                        inset 0 2px 0 rgba(255, 215, 0, 0.4),
+                        0 0 30px rgba(255, 215, 0, 0.3);
+          }
+          50% {
+            box-shadow: 0 20px 50px rgba(255, 69, 0, 0.7),
+                        inset 0 2px 0 rgba(255, 215, 0, 0.6),
+                        0 0 40px rgba(255, 215, 0, 0.5);
+          }
         }
 
         .calculate-btn:hover {
-          transform: translateY(-3px);
-          box-shadow: 0 10px 25px rgba(52, 152, 219, 0.3);
+          transform: translateY(-8px) scale(1.05);
+          box-shadow: 0 25px 60px rgba(255, 69, 0, 0.8),
+                      0 0 40px rgba(255, 215, 0, 0.6),
+                      inset 0 0 20px rgba(255, 215, 0, 0.2);
+          text-shadow: 0 0 20px rgba(255, 215, 0, 1);
+          border-color: #FF4500;
+        }
+
+        .calculate-btn:active {
+          transform: translateY(-2px) scale(0.98);
         }
 
         .results-section {
-          background: linear-gradient(45deg, #27ae60, #219a52);
-          color: white;
-          padding: 25px;
-          border-radius: 15px;
-          margin-top: 20px;
+          background: linear-gradient(145deg, #2d5016 0%, #1a3009 50%, #3d6b1a 100%);
+          border: 2px solid #32CD32;
+          color: #32CD32;
+          padding: 30px;
+          border-radius: 20px;
+          margin-top: 25px;
+          box-shadow: 0 15px 40px rgba(50, 205, 50, 0.3),
+                      inset 0 1px 0 rgba(50, 205, 50, 0.4),
+                      0 0 25px rgba(50, 205, 50, 0.2);
         }
 
         .results-grid {
@@ -842,46 +1624,433 @@ export default function Home() {
         }
 
         .tips-section {
-          background: rgba(255, 255, 255, 0.95);
+          background: linear-gradient(145deg, #2d1810 0%, #1a0a0a 50%, #3d1a00 100%);
+          border: 2px solid #FFD700;
           border-radius: 15px;
           padding: 20px;
+          box-shadow: 0 8px 25px rgba(255, 215, 0, 0.2);
         }
 
         .tips-section h3 {
-          color: #2c3e50;
+          color: #FFD700;
           margin-bottom: 15px;
+          text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
         }
 
         .tip-item {
-          background: #f8f9fa;
+          background: linear-gradient(145deg, #2d1810, #1a0a0a);
+          border: 2px solid #FFD700;
           padding: 15px;
           border-radius: 8px;
           margin-bottom: 10px;
-          border-left: 4px solid #3498db;
+          box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2);
+          color: rgba(255, 215, 0, 0.9);
         }
 
-        .feature-highlight {
-          background: linear-gradient(45deg, #f39c12, #e67e22);
-          color: white;
-          padding: 15px;
-          border-radius: 10px;
-          margin-bottom: 20px;
+        /* Hero Carousel */
+        .hero-carousel {
+          position: relative;
+          background: linear-gradient(145deg, #2d1810 0%, #1a0a0a 50%, #3d1a00 100%);
+          border: 3px solid #FFD700;
+          border-radius: 20px;
+          margin-bottom: 25px;
+          overflow: hidden;
+          height: 200px;
+          box-shadow: 0 15px 40px rgba(255, 215, 0, 0.3),
+                      inset 0 1px 0 rgba(255, 215, 0, 0.4),
+                      0 0 30px rgba(220, 20, 60, 0.2);
+        }
+
+        .carousel-container {
+          position: relative;
+          width: 100%;
+          height: 100%;
+        }
+
+        .carousel-slide {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          opacity: 0;
+          transition: opacity 1s ease-in-out;
+          display: flex;
+          align-items: center;
+          justify-content: center;
           text-align: center;
+          padding: 30px;
+        }
+
+        .carousel-slide.active {
+          opacity: 1;
+        }
+
+        .slide-content h2 {
+          font-size: 2.2em;
+          background: linear-gradient(45deg, #FFD700, #FFA500, #FFD700);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          margin-bottom: 15px;
+          text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+          animation: pulse 2s infinite;
+        }
+
+        .slide-content p {
+          font-size: 1.2em;
+          color: #FFD700;
+          margin-bottom: 20px;
+          text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+        }
+
+        .slide-stats {
+          display: flex;
+          gap: 20px;
+          justify-content: center;
+          flex-wrap: wrap;
+        }
+
+        .slide-stats .stat {
+          background: linear-gradient(45deg, #DC143C, #8B0000);
+          color: #FFD700;
+          padding: 8px 15px;
+          border-radius: 20px;
+          font-weight: bold;
+          font-size: 0.9em;
+          border: 2px solid #FFD700;
+          box-shadow: 0 4px 15px rgba(220, 20, 60, 0.4);
+          animation: glow 2s infinite alternate;
+        }
+
+        .carousel-indicators {
+          position: absolute;
+          bottom: 15px;
+          left: 50%;
+          transform: translateX(-50%);
+          display: flex;
+          gap: 10px;
+        }
+
+        .indicator {
+          width: 12px;
+          height: 12px;
+          border-radius: 50%;
+          background: rgba(255, 215, 0, 0.4);
+          border: 2px solid #FFD700;
+          cursor: pointer;
+          transition: all 0.3s;
+        }
+
+        .indicator.active {
+          background: #FFD700;
+          box-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+        }
+
+        /* Visual Showcase */
+        .visual-showcase {
+          background: linear-gradient(145deg, #2d1810 0%, #1a0a0a 50%, #3d1a00 100%);
+          border: 3px solid #FFD700;
+          border-radius: 20px;
+          padding: 40px;
+          margin-bottom: 30px;
+          text-align: center;
+          box-shadow: 0 20px 50px rgba(255, 215, 0, 0.3),
+                      inset 0 2px 0 rgba(255, 215, 0, 0.4);
+        }
+
+        .visual-showcase h2 {
+          color: #FFD700;
+          font-size: 2.2em;
+          margin-bottom: 30px;
+          text-shadow: 0 3px 15px rgba(0, 0, 0, 0.8);
+        }
+
+        .showcase-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 30px;
+          margin-top: 30px;
+        }
+
+        .showcase-item {
+          background: linear-gradient(145deg, #2d1810, #1a0a0a);
+          border: 2px solid #FF4500;
+          border-radius: 15px;
+          padding: 25px;
+          transition: all 0.4s;
+          text-decoration: none;
+          color: inherit;
+          display: block;
+        }
+
+        .showcase-item.clickable {
+          cursor: pointer;
+          position: relative;
+          overflow: hidden;
+        }
+
+        .showcase-item.clickable::before {
+          content: '';
+          position: absolute;
+          top: -2px;
+          left: -2px;
+          right: -2px;
+          bottom: -2px;
+          background: linear-gradient(45deg, #FFD700, #FF4500, #DC143C, #FFD700);
+          border-radius: 15px;
+          z-index: -1;
+          opacity: 0;
+          transition: opacity 0.3s;
+        }
+
+        .showcase-item.clickable:hover::before {
+          opacity: 1;
+        }
+
+        .showcase-item:hover {
+          transform: translateY(-15px) scale(1.08);
+          box-shadow: 0 20px 50px rgba(255, 69, 0, 0.6),
+                      0 0 30px rgba(255, 215, 0, 0.4);
+          border-color: #FFD700;
+        }
+
+        .click-indicator {
+          margin-top: 15px;
+          color: #FFD700;
+          font-size: 0.9em;
+          font-weight: bold;
+          text-align: center;
+          background: linear-gradient(45deg, #DC143C, #8B0000);
+          padding: 8px 15px;
+          border-radius: 20px;
+          border: 1px solid #FFD700;
+          animation: clickPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes clickPulse {
+          0%, 100% {
+            transform: scale(1);
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+          }
+          50% {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+          }
+        }
+
+        /* Visual Elements */
+        .visual-element {
+          width: 80px;
+          height: 80px;
+          margin: 0 auto 20px;
+          position: relative;
+        }
+
+        /* Roulette Wheel */
+        .roulette-wheel {
+          width: 80px;
+          height: 80px;
+          border: 4px solid #FFD700;
+          border-radius: 50%;
+          background: conic-gradient(from 0deg, #DC143C 0deg 45deg, #000 45deg 90deg, #DC143C 90deg 135deg, #000 135deg 180deg, #DC143C 180deg 225deg, #000 225deg 270deg, #DC143C 270deg 315deg, #000 315deg 360deg);
+          position: relative;
+          animation: rouletteSpin 3s linear infinite;
+        }
+
+        .roulette-ball {
+          width: 8px;
+          height: 8px;
+          background: #FFD700;
+          border-radius: 50%;
+          position: absolute;
+          top: 10px;
+          left: 50%;
+          transform: translateX(-50%);
+          animation: ballSpin 3s linear infinite reverse;
+        }
+
+        @keyframes rouletteSpin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+
+        @keyframes ballSpin {
+          0% { transform: translateX(-50%) rotate(0deg) translateX(30px) rotate(0deg); }
+          100% { transform: translateX(-50%) rotate(-360deg) translateX(30px) rotate(360deg); }
+        }
+
+        /* Playing Cards */
+        .cards {
+          position: relative;
+        }
+
+        .card {
+          width: 35px;
+          height: 50px;
+          background: linear-gradient(145deg, #fff, #f0f0f0);
+          border: 2px solid #000;
+          border-radius: 5px;
+          position: absolute;
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-1 {
+          left: 10px;
+          top: 0;
+          transform: rotate(-15deg);
+          z-index: 1;
+        }
+
+        .card-1::after {
+          content: 'A♣';
+          position: absolute;
+          top: 5px;
+          left: 5px;
+          font-size: 12px;
+          color: #000;
+          font-weight: bold;
+        }
+
+        .card-2 {
+          left: 22px;
+          top: 5px;
+          transform: rotate(5deg);
+          z-index: 2;
+          background: linear-gradient(145deg, #FFD700, #FFA500);
+        }
+
+        .card-2::after {
+          content: 'K♥';
+          position: absolute;
+          top: 5px;
+          left: 5px;
+          font-size: 12px;
+          color: #DC143C;
+          font-weight: bold;
+        }
+
+        .card-3 {
+          left: 35px;
+          top: 2px;
+          transform: rotate(15deg);
+          z-index: 3;
+        }
+
+        .card-3::after {
+          content: 'Q♦';
+          position: absolute;
+          top: 5px;
+          left: 5px;
+          font-size: 12px;
+          color: #DC143C;
+          font-weight: bold;
+        }
+
+        /* Gold Coins */
+        .coins {
+          position: relative;
+        }
+
+        .coin {
+          width: 25px;
+          height: 25px;
+          background: linear-gradient(145deg, #FFD700, #FFA500);
+          border: 2px solid #B8860B;
+          border-radius: 50%;
+          position: absolute;
+          animation: coinFlip 2s ease-in-out infinite;
+        }
+
+        .coin::after {
+          content: '€';
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          font-size: 12px;
+          font-weight: bold;
+          color: #8B4513;
+        }
+
+        .coin-1 {
+          left: 15px;
+          top: 10px;
+          animation-delay: 0s;
+        }
+
+        .coin-2 {
+          left: 30px;
+          top: 25px;
+          animation-delay: 0.5s;
+        }
+
+        .coin-3 {
+          left: 45px;
+          top: 15px;
+          animation-delay: 1s;
+        }
+
+        @keyframes coinFlip {
+          0%, 100% {
+            transform: rotateY(0deg) translateY(0px);
+          }
+          25% {
+            transform: rotateY(90deg) translateY(-5px);
+          }
+          50% {
+            transform: rotateY(180deg) translateY(-10px);
+          }
+          75% {
+            transform: rotateY(270deg) translateY(-5px);
+          }
+        }
+
+        .showcase-item h3 {
+          color: #FFD700;
+          margin-bottom: 10px;
+          font-size: 1.3em;
+        }
+
+        .showcase-item p {
+          color: rgba(255, 215, 0, 0.8);
+          font-size: 0.95em;
+        }
+
+        @keyframes pulse {
+          0%, 100% {
+            transform: scale(1);
+          }
+          50% {
+            transform: scale(1.05);
+          }
+        }
+
+        @keyframes glow {
+          0% {
+            box-shadow: 0 4px 15px rgba(220, 20, 60, 0.4);
+          }
+          100% {
+            box-shadow: 0 4px 25px rgba(220, 20, 60, 0.8), 0 0 20px rgba(255, 215, 0, 0.3);
+          }
         }
 
         .educational-resources {
-          background: rgba(255, 255, 255, 0.95);
-          border-radius: 15px;
-          padding: 30px;
+          background: linear-gradient(145deg, #2d1810 0%, #1a0a0a 50%, #3d1a00 100%);
+          border: 2px solid #FFD700;
+          border-radius: 20px;
+          padding: 35px;
           margin-bottom: 30px;
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 15px 40px rgba(255, 215, 0, 0.2),
+                      inset 0 1px 0 rgba(255, 215, 0, 0.3);
         }
 
         .educational-resources h2 {
-          color: #2c3e50;
+          color: #FFD700;
           text-align: center;
-          margin-bottom: 25px;
-          font-size: 1.8em;
+          margin-bottom: 30px;
+          font-size: 2em;
+          text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
         }
 
         .resources-grid {
@@ -891,18 +2060,38 @@ export default function Home() {
         }
 
         .resource-card {
-          background: #f8f9fa;
-          border-radius: 15px;
-          padding: 25px;
+          background: linear-gradient(145deg, #2d1810, #1a0a0a);
+          border: 2px solid #FFD700;
+          border-radius: 20px;
+          padding: 30px;
           text-align: center;
-          border: 2px solid transparent;
-          transition: all 0.3s;
+          transition: all 0.4s;
+          position: relative;
+          overflow: hidden;
+        }
+
+        .resource-card::before {
+          content: '';
+          position: absolute;
+          top: -2px;
+          left: -2px;
+          right: -2px;
+          bottom: -2px;
+          background: linear-gradient(45deg, #FFD700, #DC143C, #FFD700);
+          border-radius: 20px;
+          z-index: -1;
+          opacity: 0;
+          transition: opacity 0.3s;
+        }
+
+        .resource-card:hover::before {
+          opacity: 1;
         }
 
         .resource-card:hover {
-          border-color: #3498db;
-          transform: translateY(-5px);
-          box-shadow: 0 15px 35px rgba(52, 152, 219, 0.2);
+          transform: translateY(-8px) scale(1.03);
+          box-shadow: 0 20px 50px rgba(220, 20, 60, 0.4),
+                      0 0 30px rgba(255, 215, 0, 0.3);
         }
 
         .resource-icon {
@@ -911,46 +2100,64 @@ export default function Home() {
         }
 
         .resource-card h3 {
-          color: #2c3e50;
+          color: #FFD700;
           margin-bottom: 15px;
           font-size: 1.3em;
+          text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
         }
 
         .resource-card p {
-          color: #7f8c8d;
+          color: rgba(255, 215, 0, 0.9);
           margin-bottom: 20px;
           line-height: 1.6;
         }
 
         .resource-link {
           display: inline-block;
-          background: linear-gradient(45deg, #3498db, #2980b9);
-          color: white;
-          padding: 12px 25px;
-          border-radius: 25px;
+          background: linear-gradient(45deg, #FFD700, #FF4500);
+          color: #000;
+          border: 3px solid #DC143C;
+          padding: 15px 30px;
+          border-radius: 30px;
           text-decoration: none;
-          font-weight: 600;
+          font-weight: 700;
           transition: all 0.3s;
+          box-shadow: 0 6px 20px rgba(255, 215, 0, 0.6);
+          text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+          text-transform: uppercase;
+          letter-spacing: 1.5px;
+          font-size: 1em;
         }
 
         .resource-link:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 8px 20px rgba(52, 152, 219, 0.3);
+          transform: translateY(-5px) scale(1.1);
+          box-shadow: 0 15px 40px rgba(255, 215, 0, 0.8),
+                      0 0 30px rgba(255, 215, 0, 0.6);
+          text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+          border-color: #FFD700;
+          background: linear-gradient(45deg, #FF4500, #FFD700);
+          color: #000;
         }
 
         .footer {
-          background: rgba(255, 255, 255, 0.95);
+          background: linear-gradient(145deg, #2d1810 0%, #1a0a0a 50%, #3d1a00 100%);
+          border: 2px solid #FFD700;
           border-radius: 15px;
           padding: 30px;
           margin-top: 30px;
           text-align: center;
+          color: #FFD700;
+          box-shadow: 0 15px 40px rgba(255, 215, 0, 0.2),
+                      inset 0 1px 0 rgba(255, 215, 0, 0.3);
         }
 
         .footer-nav {
-          background: #f8f9fa;
+          background: linear-gradient(145deg, #2d1810, #1a0a0a);
+          border: 2px solid #FFD700;
           border-radius: 10px;
           padding: 20px;
           margin-bottom: 30px;
+          box-shadow: 0 8px 25px rgba(255, 215, 0, 0.2);
         }
 
         .nav-links {
@@ -962,35 +2169,45 @@ export default function Home() {
 
         .footer-link {
           display: inline-block;
-          background: linear-gradient(45deg, #3498db, #2980b9);
-          color: white;
+          background: linear-gradient(45deg, #FF4500, #DC143C);
+          color: #FFD700;
+          border: 2px solid #FFD700;
           padding: 12px 20px;
           border-radius: 25px;
           text-decoration: none;
           font-weight: 600;
           transition: all 0.3s;
           text-align: center;
+          box-shadow: 0 4px 15px rgba(255, 69, 0, 0.4);
+          text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
         }
 
         .footer-link:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+          transform: translateY(-3px) scale(1.05);
+          box-shadow: 0 10px 30px rgba(255, 69, 0, 0.6),
+                      0 0 25px rgba(255, 215, 0, 0.4);
+          text-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+          border-color: #FF4500;
         }
 
         /* Guía Rápida */
         .quick-guide {
-          background: rgba(255, 255, 255, 0.95);
+          background: linear-gradient(145deg, #2d1810 0%, #1a0a0a 50%, #3d1a00 100%);
+          border: 2px solid #FFD700;
           border-radius: 15px;
           padding: 40px;
           margin: 30px 0;
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 15px 40px rgba(255, 215, 0, 0.2),
+                      inset 0 1px 0 rgba(255, 215, 0, 0.3),
+                      0 0 30px rgba(220, 20, 60, 0.1);
         }
 
         .quick-guide h2 {
           text-align: center;
-          color: #2c3e50;
+          color: #FFD700;
           margin-bottom: 40px;
           font-size: 2em;
+          text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
         }
 
         .guide-steps {
@@ -1004,16 +2221,18 @@ export default function Home() {
           align-items: flex-start;
           gap: 20px;
           padding: 25px;
-          background: #f8f9fa;
+          background: linear-gradient(145deg, #2d1810, #1a0a0a);
+          border: 2px solid #FFD700;
           border-radius: 15px;
-          border-left: 5px solid #3498db;
+          box-shadow: 0 8px 25px rgba(255, 215, 0, 0.2);
         }
 
         .step-number {
-          background: #3498db;
-          color: white;
+          background: linear-gradient(45deg, #DC143C, #8B0000);
+          color: #FFD700;
           width: 40px;
           height: 40px;
+          border: 2px solid #FFD700;
           border-radius: 50%;
           display: flex;
           align-items: center;
@@ -1021,32 +2240,39 @@ export default function Home() {
           font-weight: bold;
           font-size: 1.2em;
           flex-shrink: 0;
+          box-shadow: 0 4px 15px rgba(220, 20, 60, 0.4);
         }
 
         .step-content h3 {
-          color: #2c3e50;
+          color: #FFD700;
           margin-bottom: 10px;
           font-size: 1.3em;
+          text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
         }
 
         .step-content p {
           line-height: 1.6;
-          color: #555;
+          color: rgba(255, 215, 0, 0.9);
         }
 
         /* Características Detalladas */
         .detailed-features {
-          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-          color: white;
+          background: linear-gradient(145deg, #2d1810 0%, #1a0a0a 50%, #3d1a00 100%);
+          border: 2px solid #FFD700;
+          color: #FFD700;
           padding: 50px 40px;
           margin: 30px 0;
           border-radius: 15px;
+          box-shadow: 0 15px 40px rgba(255, 215, 0, 0.2),
+                      inset 0 1px 0 rgba(255, 215, 0, 0.3),
+                      0 0 30px rgba(220, 20, 60, 0.1);
         }
 
         .detailed-features h2 {
           text-align: center;
           margin-bottom: 40px;
           font-size: 2em;
+          text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
         }
 
         .features-grid {
@@ -1056,12 +2282,12 @@ export default function Home() {
         }
 
         .feature-item {
-          background: rgba(255, 255, 255, 0.1);
+          background: linear-gradient(145deg, #2d1810, #1a0a0a);
+          border: 2px solid #FFD700;
           padding: 30px;
           border-radius: 15px;
           text-align: center;
-          backdrop-filter: blur(10px);
-          border: 1px solid rgba(255, 255, 255, 0.2);
+          box-shadow: 0 8px 25px rgba(255, 215, 0, 0.2);
         }
 
         .feature-icon {
@@ -1077,22 +2303,27 @@ export default function Home() {
         .feature-item p {
           line-height: 1.6;
           opacity: 0.9;
+          color: rgba(255, 215, 0, 0.9);
         }
 
         /* FAQ Section */
         .faq-section {
-          background: rgba(255, 255, 255, 0.95);
+          background: linear-gradient(145deg, #2d1810 0%, #1a0a0a 50%, #3d1a00 100%);
+          border: 2px solid #FFD700;
           border-radius: 15px;
           padding: 40px;
           margin: 30px 0;
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 15px 40px rgba(255, 215, 0, 0.2),
+                      inset 0 1px 0 rgba(255, 215, 0, 0.3),
+                      0 0 30px rgba(220, 20, 60, 0.1);
         }
 
         .faq-section h2 {
           text-align: center;
-          color: #2c3e50;
+          color: #FFD700;
           margin-bottom: 40px;
           font-size: 2em;
+          text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
         }
 
         .faq-grid {
@@ -1102,36 +2333,44 @@ export default function Home() {
         }
 
         .faq-item {
-          background: #f8f9fa;
+          background: linear-gradient(145deg, #2d1810, #1a0a0a);
+          border: 2px solid #FFD700;
           padding: 25px;
           border-radius: 10px;
-          border-left: 4px solid #27ae60;
+          margin-bottom: 25px;
+          box-shadow: 0 8px 25px rgba(255, 215, 0, 0.2);
         }
 
         .faq-item h3 {
-          color: #2c3e50;
+          color: #FFD700;
           margin-bottom: 15px;
           font-size: 1.2em;
+          text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
         }
 
         .faq-item p {
           line-height: 1.6;
-          color: #555;
+          color: rgba(255, 215, 0, 0.9);
         }
 
         /* Estadísticas */
         .stats-section {
-          background: linear-gradient(45deg, #27ae60, #2ecc71);
-          color: white;
+          background: linear-gradient(145deg, #2d1810 0%, #1a0a0a 50%, #3d1a00 100%);
+          border: 2px solid #FFD700;
+          color: #FFD700;
           padding: 50px 40px;
           margin: 30px 0;
           border-radius: 15px;
           text-align: center;
+          box-shadow: 0 15px 40px rgba(255, 215, 0, 0.2),
+                      inset 0 1px 0 rgba(255, 215, 0, 0.3),
+                      0 0 30px rgba(220, 20, 60, 0.1);
         }
 
         .stats-section h2 {
           margin-bottom: 40px;
           font-size: 2em;
+          text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
         }
 
         .stats-grid {
@@ -1141,10 +2380,11 @@ export default function Home() {
         }
 
         .stat-item {
-          background: rgba(255, 255, 255, 0.1);
+          background: linear-gradient(145deg, #2d1810, #1a0a0a);
+          border: 2px solid #FFD700;
           padding: 30px 20px;
           border-radius: 15px;
-          backdrop-filter: blur(10px);
+          box-shadow: 0 8px 25px rgba(255, 215, 0, 0.2);
         }
 
         .stat-number {
@@ -1167,18 +2407,22 @@ export default function Home() {
 
         /* Ejemplos Prácticos */
         .examples-section {
-          background: rgba(255, 255, 255, 0.95);
+          background: linear-gradient(145deg, #2d1810 0%, #1a0a0a 50%, #3d1a00 100%);
+          border: 2px solid #FFD700;
           border-radius: 15px;
           padding: 40px;
           margin: 30px 0;
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 15px 40px rgba(255, 215, 0, 0.2),
+                      inset 0 1px 0 rgba(255, 215, 0, 0.3),
+                      0 0 30px rgba(220, 20, 60, 0.1);
         }
 
         .examples-section h2 {
           text-align: center;
-          color: #2c3e50;
+          color: #FFD700;
           margin-bottom: 40px;
           font-size: 2em;
+          text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
         }
 
         .examples-grid {
@@ -1188,18 +2432,20 @@ export default function Home() {
         }
 
         .example-card {
-          background: #f8f9fa;
+          background: linear-gradient(145deg, #2d1810, #1a0a0a);
+          border: 2px solid #FFD700;
           border-radius: 15px;
           overflow: hidden;
-          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 8px 25px rgba(255, 215, 0, 0.2);
         }
 
         .example-card h3 {
-          background: linear-gradient(45deg, #e74c3c, #c0392b);
-          color: white;
+          background: linear-gradient(45deg, #DC143C, #8B0000);
+          color: #FFD700;
           padding: 20px;
           margin: 0;
           font-size: 1.3em;
+          text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
         }
 
         .example-content {
@@ -1212,37 +2458,43 @@ export default function Home() {
 
         .example-content li {
           margin-bottom: 8px;
-          color: #555;
+          color: rgba(255, 215, 0, 0.9);
         }
 
         .example-result {
-          background: white;
+          background: linear-gradient(145deg, #2d5016, #1a3009);
+          border: 2px solid #32CD32;
           padding: 20px;
           border-radius: 10px;
           margin-top: 20px;
-          border-left: 4px solid #27ae60;
+          box-shadow: 0 4px 15px rgba(50, 205, 50, 0.3);
         }
 
         .example-result .highlight {
-          color: #27ae60;
+          color: #32CD32;
           font-weight: bold;
           font-size: 1.1em;
+          text-shadow: 0 0 10px rgba(50, 205, 50, 0.5);
         }
 
         /* Consejos y Errores */
         .tips-and-mistakes {
-          background: rgba(255, 255, 255, 0.95);
+          background: linear-gradient(145deg, #2d1810 0%, #1a0a0a 50%, #3d1a00 100%);
+          border: 2px solid #FFD700;
           border-radius: 15px;
           padding: 40px;
           margin: 30px 0;
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 15px 40px rgba(255, 215, 0, 0.2),
+                      inset 0 1px 0 rgba(255, 215, 0, 0.3),
+                      0 0 30px rgba(220, 20, 60, 0.1);
         }
 
         .tips-and-mistakes h2 {
           text-align: center;
-          color: #2c3e50;
+          color: #FFD700;
           margin-bottom: 40px;
           font-size: 2em;
+          text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
         }
 
         .tips-mistakes-grid {
@@ -1253,29 +2505,33 @@ export default function Home() {
         }
 
         .tips-column h3 {
-          color: #27ae60;
+          color: #32CD32;
           margin-bottom: 25px;
           font-size: 1.5em;
           text-align: center;
+          text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
         }
 
         .mistakes-column h3 {
-          color: #e74c3c;
+          color: #DC143C;
           margin-bottom: 25px;
           font-size: 1.5em;
           text-align: center;
+          text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
         }
 
         .tip-card, .mistake-card {
-          background: #f8f9fa;
+          background: linear-gradient(145deg, #2d1810, #1a0a0a);
+          border: 2px solid #32CD32;
           padding: 20px;
           border-radius: 10px;
           margin-bottom: 20px;
-          border-left: 4px solid #27ae60;
+          box-shadow: 0 6px 20px rgba(50, 205, 50, 0.2);
         }
 
         .mistake-card {
-          border-left-color: #e74c3c;
+          border-color: #DC143C;
+          box-shadow: 0 6px 20px rgba(220, 20, 60, 0.2);
         }
 
         .tip-card h4, .mistake-card h4 {
@@ -1284,30 +2540,36 @@ export default function Home() {
         }
 
         .tip-card h4 {
-          color: #27ae60;
+          color: #32CD32;
+          text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
         }
 
         .mistake-card h4 {
-          color: #e74c3c;
+          color: #DC143C;
+          text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
         }
 
         .tip-card p, .mistake-card p {
           line-height: 1.6;
-          color: #555;
+          color: rgba(255, 215, 0, 0.9);
           margin-bottom: 0;
         }
 
         .final-cta {
-          background: linear-gradient(45deg, #3498db, #2980b9);
-          color: white;
+          background: linear-gradient(145deg, #DC143C 0%, #8B0000 50%, #FF4500 100%);
+          border: 2px solid #FFD700;
+          color: #FFD700;
           padding: 30px;
           border-radius: 15px;
           text-align: center;
+          box-shadow: 0 10px 30px rgba(220, 20, 60, 0.4),
+                      inset 0 1px 0 rgba(255, 215, 0, 0.3);
         }
 
         .final-cta h3 {
           margin-bottom: 15px;
           font-size: 1.6em;
+          text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
         }
 
         .final-cta p {
@@ -1317,20 +2579,23 @@ export default function Home() {
         }
 
         .scroll-top-btn {
-          background: white;
-          color: #3498db;
-          border: none;
+          background: linear-gradient(45deg, #FFD700, #FFA500);
+          color: #8B0000;
+          border: 2px solid #8B0000;
           padding: 15px 30px;
           border-radius: 25px;
           font-size: 1.1em;
           font-weight: bold;
           cursor: pointer;
           transition: all 0.3s;
+          box-shadow: 0 6px 20px rgba(255, 215, 0, 0.3);
         }
 
         .scroll-top-btn:hover {
           transform: translateY(-3px);
-          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4),
+                      0 0 20px rgba(255, 215, 0, 0.3);
+          text-shadow: 0 0 10px rgba(139, 0, 0, 0.5);
         }
 
         @media (max-width: 768px) {
@@ -1339,25 +2604,29 @@ export default function Home() {
           .faq-grid,
           .stats-grid,
           .examples-grid,
-          .tips-mistakes-grid {
+          .tips-mistakes-grid,
+          .showcase-grid {
             grid-template-columns: 1fr;
+            gap: 15px;
           }
           
           .detailed-features,
           .stats-section {
-            padding: 30px 20px;
+            padding: 20px 15px;
           }
           
           .quick-guide,
           .faq-section,
           .examples-section,
-          .tips-and-mistakes {
-            padding: 25px;
+          .tips-and-mistakes,
+          .visual-showcase {
+            padding: 20px 15px;
           }
           
           .guide-step {
             flex-direction: column;
             text-align: center;
+            padding: 20px 15px;
           }
           
           .step-number {
@@ -1365,7 +2634,119 @@ export default function Home() {
           }
 
           .tips-mistakes-grid {
-            gap: 25px;
+            grid-template-columns: 1fr;
+            gap: 20px;
+          }
+
+          .hero-carousel {
+            height: 120px;
+            margin-bottom: 15px;
+          }
+
+          .slide-content h2 {
+            font-size: 1.3em;
+          }
+
+          .slide-content p {
+            font-size: 0.9em;
+          }
+
+          .slide-stats {
+            gap: 8px;
+          }
+
+          .slide-stats .stat {
+            padding: 4px 8px;
+            font-size: 0.7em;
+          }
+
+          .container {
+            padding: 15px;
+          }
+
+          .main-content {
+            grid-template-columns: 1fr;
+            gap: 20px;
+          }
+
+          .sidebar {
+            order: -1;
+          }
+
+          .live-stats-panel,
+          .strategy-card,
+          .odds-comparison,
+          .quick-calculator {
+            padding: 15px;
+          }
+
+          .quick-calc-row {
+            gap: 5px;
+          }
+
+          .quick-input {
+            min-width: 70px;
+            padding: 6px;
+            font-size: 0.8em;
+          }
+
+          .quick-input::placeholder {
+            font-size: 0.75em;
+          }
+
+          .quick-calculator h3 {
+            font-size: 1em;
+          }
+
+          .result-label,
+          .result-value {
+            font-size: 0.85em;
+          }
+
+          .live-stat-item {
+            padding: 10px;
+          }
+
+          .floating-icon {
+            font-size: 1em;
+            opacity: 0.1;
+          }
+
+          .casino-chip {
+            width: 15px;
+            height: 15px;
+          }
+
+          .calculate-btn {
+            font-size: 18px;
+            padding: 20px 30px;
+            letter-spacing: 2px;
+          }
+
+          .visual-element {
+            width: 60px;
+            height: 60px;
+          }
+
+          .roulette-wheel {
+            width: 60px;
+            height: 60px;
+          }
+
+          .showcase-item {
+            padding: 20px 15px;
+          }
+
+          .visual-showcase h2 {
+            font-size: 1.8em;
+          }
+
+          .header h1 {
+            font-size: 2em;
+          }
+
+          .header p {
+            font-size: 1.1em;
           }
         }
 
@@ -1394,6 +2775,6 @@ export default function Home() {
           }
         }
       `}</style>
-    </>
+    </div>
   );
 }

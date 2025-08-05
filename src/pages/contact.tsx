@@ -214,8 +214,9 @@ export default function Contact() {
         body {
           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
           line-height: 1.6;
-          color: #333;
-          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          color: #FFD700;
+          background: linear-gradient(135deg, #1a0a0a 0%, #2d1810 25%, #1f0f0f 50%, #3d1a00 75%, #0f0a0a 100%) !important;
+          background-attachment: fixed !important;
           min-height: 100vh;
         }
         
@@ -227,18 +228,22 @@ export default function Contact() {
         
         .header {
           text-align: center;
-          background: rgba(255, 255, 255, 0.95);
+          background: linear-gradient(145deg, #2d1810 0%, #1a0a0a 50%, #3d1a00 100%);
+          border: 2px solid #FFD700;
           border-radius: 15px;
           padding: 30px;
           margin-bottom: 30px;
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 15px 40px rgba(255, 215, 0, 0.3),
+                      inset 0 1px 0 rgba(255, 215, 0, 0.4);
         }
         
         .content {
-          background: rgba(255, 255, 255, 0.95);
+          background: linear-gradient(145deg, #2d1810 0%, #1a0a0a 50%, #3d1a00 100%);
+          border: 2px solid #FFD700;
           border-radius: 15px;
           padding: 40px;
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 15px 40px rgba(255, 215, 0, 0.2),
+                      inset 0 1px 0 rgba(255, 215, 0, 0.3);
           margin-bottom: 30px;
         }
         
@@ -255,16 +260,18 @@ export default function Contact() {
         }
         
         h1 {
-          color: #2c3e50;
+          color: #FFD700;
           margin-bottom: 20px;
+          text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
         }
         
         h2 {
-          color: #2c3e50;
+          color: #FFD700;
           margin-top: 30px;
           margin-bottom: 15px;
-          border-bottom: 2px solid #3498db;
+          border-bottom: 2px solid #FF4500;
           padding-bottom: 5px;
+          text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
         }
         
         h3 {
@@ -345,20 +352,25 @@ export default function Contact() {
         }
         
         .btn-submit {
-          background: linear-gradient(45deg, #3498db, #2980b9);
-          color: white;
-          border: none;
+          background: linear-gradient(145deg, #FF4500 0%, #DC143C 30%, #8B0000 60%, #FF6347 100%);
+          color: #FFD700;
+          border: 3px solid #FFD700;
           padding: 15px 30px;
           border-radius: 25px;
           font-size: 18px;
           font-weight: bold;
           cursor: pointer;
           transition: all 0.3s;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          box-shadow: 0 8px 25px rgba(255, 69, 0, 0.4);
         }
         
         .btn-submit:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 10px 25px rgba(52, 152, 219, 0.3);
+          transform: translateY(-3px) scale(1.05);
+          box-shadow: 0 12px 35px rgba(255, 69, 0, 0.6),
+                      0 0 25px rgba(255, 215, 0, 0.4);
+          text-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
         }
         
         .faq-item {
