@@ -1,0 +1,21 @@
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="mathGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#FF6B35;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F7931E;stop-opacity:1" />
+    </radialGradient>
+  </defs>
+  
+  <circle cx="16" cy="16" r="16" fill="url(#mathGradient)"/>
+  <circle cx="16" cy="16" r="14" fill="none" stroke="white" stroke-width="1" opacity="0.3"/>
+  
+  <!-- Mathematical symbols arranged in a pattern -->
+  <text x="16" y="13" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">+</text>
+  <text x="10" y="20" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="rgba(255,255,255,0.8)" text-anchor="middle">×</text>
+  <text x="22" y="20" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="rgba(255,255,255,0.8)" text-anchor="middle">=</text>
+  <text x="16" y="25" font-family="Arial, sans-serif" font-size="6" font-weight="bold" fill="rgba(255,255,255,0.6)" text-anchor="middle">%</text>
+  
+  <!-- Small accent dots -->
+  <circle cx="8" cy="8" r="1" fill="rgba(255,255,255,0.4)"/>
+  <circle cx="24" cy="8" r="1" fill="rgba(255,255,255,0.4)"/>
+</svg>

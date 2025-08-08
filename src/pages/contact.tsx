@@ -202,6 +202,80 @@ export default function Contact() {
             <div className="faq-answer">Absolutamente. Nuestro diseño es completamente responsive y funciona perfectamente en móviles y tablets.</div>
           </div>
         </div>
+
+        {/* External Links Section */}
+        <div className="external-links" style={{
+          background: 'linear-gradient(145deg, #2d1810 0%, #1a0a0a 50%, #3d1a00 100%)',
+          border: '2px solid #FFD700',
+          borderRadius: '15px',
+          padding: '30px',
+          marginTop: '30px',
+          boxShadow: '0 15px 40px rgba(255, 215, 0, 0.2), inset 0 1px 0 rgba(255, 215, 0, 0.3)'
+        }}>
+          <h2 style={{textAlign: 'center', marginBottom: '25px', color: '#FFD700'}}>🔗 Recursos Adicionales</h2>
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+            gap: '20px'
+          }}>
+            <a href="https://corporatesoftwareinspector.com" target="_blank" rel="noopener noreferrer" style={{
+              background: 'linear-gradient(45deg, #DC143C, #8B0000)',
+              color: '#FFD700',
+              padding: '15px',
+              borderRadius: '10px',
+              textDecoration: 'none',
+              textAlign: 'center',
+              border: '2px solid #FFD700',
+              transition: 'transform 0.3s',
+              display: 'block'
+            }}>
+              <div style={{fontSize: '1.5em', marginBottom: '5px'}}>🔍</div>
+              <div>Corporate Software Inspector</div>
+            </a>
+            <a href="https://mahavatar-narsimha.com" target="_blank" rel="noopener noreferrer" style={{
+              background: 'linear-gradient(45deg, #DC143C, #8B0000)',
+              color: '#FFD700',
+              padding: '15px',
+              borderRadius: '10px',
+              textDecoration: 'none',
+              textAlign: 'center',
+              border: '2px solid #FFD700',
+              transition: 'transform 0.3s',
+              display: 'block'
+            }}>
+              <div style={{fontSize: '1.5em', marginBottom: '5px'}}>🕉️</div>
+              <div>Mahavatar Narsimha</div>
+            </a>
+            <a href="https://tiktokcommentgenerators.com" target="_blank" rel="noopener noreferrer" style={{
+              background: 'linear-gradient(45deg, #DC143C, #8B0000)',
+              color: '#FFD700',
+              padding: '15px',
+              borderRadius: '10px',
+              textDecoration: 'none',
+              textAlign: 'center',
+              border: '2px solid #FFD700',
+              transition: 'transform 0.3s',
+              display: 'block'
+            }}>
+              <div style={{fontSize: '1.5em', marginBottom: '5px'}}>💬</div>
+              <div>TikTok Comment Generators</div>
+            </a>
+            <a href="https://vibemeet.ai" target="_blank" rel="noopener noreferrer" style={{
+              background: 'linear-gradient(45deg, #DC143C, #8B0000)',
+              color: '#FFD700',
+              padding: '15px',
+              borderRadius: '10px',
+              textDecoration: 'none',
+              textAlign: 'center',
+              border: '2px solid #FFD700',
+              transition: 'transform 0.3s',
+              display: 'block'
+            }}>
+              <div style={{fontSize: '1.5em', marginBottom: '5px'}}>🤖</div>
+              <div>VibeMeet AI</div>
+            </a>
+          </div>
+        </div>
       </div>
 
       <style jsx>{`

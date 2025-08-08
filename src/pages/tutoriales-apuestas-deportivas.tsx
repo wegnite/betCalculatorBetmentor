@@ -605,6 +605,75 @@ export default function TutorialesApuestasDeportivas() {
           <div className="disclaimer">
             <p><strong>⚠️ Aviso Legal:</strong> Las apuestas deportivas implican riesgo. Apuesta solo dinero que puedas permitirte perder. Si tienes problemas con el juego, busca ayuda profesional. BetMentor promueve el <strong>betting</strong> responsable.</p>
           </div>
+
+          {/* External Links Section */}
+          <div className="external-links-section" style={{
+            background: 'rgba(255, 255, 255, 0.95)',
+            borderRadius: '15px',
+            padding: '30px',
+            marginTop: '30px',
+            boxShadow: '0 10px 30px rgba(0, 0, 0, 0.1)'
+          }}>
+            <h2 style={{textAlign: 'center', marginBottom: '25px'}}>🔗 Recursos Útiles</h2>
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+              gap: '20px'
+            }}>
+              <a href="https://corporatesoftwareinspector.com" target="_blank" rel="noopener noreferrer" style={{
+                background: 'linear-gradient(45deg, #667eea, #764ba2)',
+                color: 'white',
+                padding: '15px',
+                borderRadius: '10px',
+                textDecoration: 'none',
+                textAlign: 'center',
+                transition: 'transform 0.3s',
+                display: 'block'
+              }}>
+                <div style={{fontSize: '1.5em', marginBottom: '5px'}}>🔍</div>
+                <div>Corporate Software Inspector</div>
+              </a>
+              <a href="https://mahavatar-narsimha.com" target="_blank" rel="noopener noreferrer" style={{
+                background: 'linear-gradient(45deg, #667eea, #764ba2)',
+                color: 'white',
+                padding: '15px',
+                borderRadius: '10px',
+                textDecoration: 'none',
+                textAlign: 'center',
+                transition: 'transform 0.3s',
+                display: 'block'
+              }}>
+                <div style={{fontSize: '1.5em', marginBottom: '5px'}}>🕉️</div>
+                <div>Mahavatar Narsimha</div>
+              </a>
+              <a href="https://tiktokcommentgenerators.com" target="_blank" rel="noopener noreferrer" style={{
+                background: 'linear-gradient(45deg, #667eea, #764ba2)',
+                color: 'white',
+                padding: '15px',
+                borderRadius: '10px',
+                textDecoration: 'none',
+                textAlign: 'center',
+                transition: 'transform 0.3s',
+                display: 'block'
+              }}>
+                <div style={{fontSize: '1.5em', marginBottom: '5px'}}>💬</div>
+                <div>TikTok Comment Generators</div>
+              </a>
+              <a href="https://vibemeet.ai" target="_blank" rel="noopener noreferrer" style={{
+                background: 'linear-gradient(45deg, #667eea, #764ba2)',
+                color: 'white',
+                padding: '15px',
+                borderRadius: '10px',
+                textDecoration: 'none',
+                textAlign: 'center',
+                transition: 'transform 0.3s',
+                display: 'block'
+              }}>
+                <div style={{fontSize: '1.5em', marginBottom: '5px'}}>🤖</div>
+                <div>VibeMeet AI</div>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
 

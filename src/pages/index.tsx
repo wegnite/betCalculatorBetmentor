@@ -146,22 +146,11 @@ export default function Home() {
         <meta name="robots" content="index, follow" />
         <meta name="author" content="BetMentor España" />
         <link rel="canonical" href="https://bet-calculator-betmentor.com/" />
-        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/favicon.svg" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/icons8-bet-50.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/icons8-bet-50.png" />
-        <link rel="shortcut icon" href="/favicon.ico" />
-        <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#667eea" />
         <link rel="alternate" hrefLang="es" href="https://bet-calculator-betmentor.com/" />
         <link rel="alternate" hrefLang="en" href="https://bet-calculator-betmentor.com/en/" />
         <link rel="alternate" hrefLang="pt" href="https://bet-calculator-betmentor.com/pt/" />
         <link rel="alternate" hrefLang="x-default" href="https://bet-calculator-betmentor.com/" />
         <meta httpEquiv="content-language" content="es" />
-        
-        {/* Google AdSense */}
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6224617757558738" crossOrigin="anonymous"></script>
         
         {/* Open Graph */}
         <meta property="og:title" content="Calculadora de Apuestas BetMentor | Herramienta Profesional de Apuestas Deportivas" />
@@ -785,6 +774,38 @@ export default function Home() {
                 ⬆️ Volver a la Calculadora
               </button>
             </div>
+          </div>
+        </section>
+
+        {/* External Links Section */}
+        <section className="external-links-section">
+          <h2>🔗 Descubre Más Herramientas Útiles</h2>
+          <p className="links-subtitle">Explora nuestros otros sitios web especializados</p>
+          <div className="external-links-grid">
+            <a href="https://bet-calculator-betmentor.com" target="_blank" rel="noopener noreferrer" className="external-link-card">
+              <div className="link-icon">🎯</div>
+              <h3>Bet Calculator BetMentor</h3>
+              <p>Calculadora profesional de apuestas deportivas con análisis avanzado de probabilidades</p>
+              <span className="visit-link">Visitar Sitio →</span>
+            </a>
+            <a href="https://corporatesoftwareinspector.com" target="_blank" rel="noopener noreferrer" className="external-link-card">
+              <div className="link-icon">🔍</div>
+              <h3>Corporate Software Inspector</h3>
+              <p>Análisis y auditoría profesional de software empresarial para optimización corporativa</p>
+              <span className="visit-link">Visitar Sitio →</span>
+            </a>
+            <a href="https://mahavatar-narsimha.com" target="_blank" rel="noopener noreferrer" className="external-link-card">
+              <div className="link-icon">🕉️</div>
+              <h3>Mahavatar Narsimha</h3>
+              <p>Portal espiritual y conocimiento ancestral sobre la deidad protectora Narsimha</p>
+              <span className="visit-link">Visitar Sitio →</span>
+            </a>
+            <a href="https://tiktokcommentgenerators.com" target="_blank" rel="noopener noreferrer" className="external-link-card">
+              <div className="link-icon">💬</div>
+              <h3>TikTok Comment Generators</h3>
+              <p>Generador inteligente de comentarios creativos y virales para TikTok</p>
+              <span className="visit-link">Visitar Sitio →</span>
+            </a>
           </div>
         </section>
 
@@ -2747,6 +2768,167 @@ export default function Home() {
 
           .header p {
             font-size: 1.1em;
+          }
+        }
+
+        /* External Links Section */
+        .external-links-section {
+          background: linear-gradient(145deg, #2d1810 0%, #1a0a0a 50%, #3d1a00 100%);
+          border: 3px solid #FFD700;
+          border-radius: 20px;
+          padding: 50px 40px;
+          margin: 40px 0;
+          box-shadow: 0 20px 50px rgba(255, 215, 0, 0.3),
+                      inset 0 2px 0 rgba(255, 215, 0, 0.4),
+                      0 0 35px rgba(220, 20, 60, 0.2);
+          text-align: center;
+        }
+
+        .external-links-section h2 {
+          color: #FFD700;
+          font-size: 2.2em;
+          margin-bottom: 15px;
+          text-shadow: 0 3px 15px rgba(0, 0, 0, 0.8);
+          background: linear-gradient(45deg, #FFD700, #FFA500, #FFD700);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+        }
+
+        .links-subtitle {
+          color: rgba(255, 215, 0, 0.8);
+          font-size: 1.2em;
+          margin-bottom: 40px;
+          text-shadow: 0 1px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        .external-links-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          gap: 30px;
+          margin-top: 30px;
+        }
+
+        .external-link-card {
+          background: linear-gradient(145deg, #2d1810, #1a0a0a);
+          border: 2px solid #FF4500;
+          border-radius: 15px;
+          padding: 30px 25px;
+          text-decoration: none;
+          transition: all 0.4s ease;
+          position: relative;
+          overflow: hidden;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          cursor: pointer;
+        }
+
+        .external-link-card::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.2), transparent);
+          transition: left 0.6s;
+        }
+
+        .external-link-card:hover::before {
+          left: 100%;
+        }
+
+        .external-link-card:hover {
+          transform: translateY(-10px) scale(1.05);
+          box-shadow: 0 25px 60px rgba(255, 69, 0, 0.6),
+                      0 0 40px rgba(255, 215, 0, 0.4),
+                      inset 0 0 20px rgba(255, 215, 0, 0.1);
+          border-color: #FFD700;
+        }
+
+        .link-icon {
+          font-size: 3em;
+          margin-bottom: 20px;
+          animation: iconFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes iconFloat {
+          0%, 100% {
+            transform: translateY(0px);
+          }
+          50% {
+            transform: translateY(-10px);
+          }
+        }
+
+        .external-link-card h3 {
+          color: #FFD700;
+          font-size: 1.4em;
+          margin-bottom: 15px;
+          text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+        }
+
+        .external-link-card p {
+          color: rgba(255, 215, 0, 0.85);
+          font-size: 0.95em;
+          line-height: 1.5;
+          margin-bottom: 20px;
+          flex-grow: 1;
+        }
+
+        .visit-link {
+          display: inline-block;
+          background: linear-gradient(45deg, #DC143C, #8B0000);
+          color: #FFD700;
+          padding: 10px 25px;
+          border-radius: 25px;
+          font-weight: bold;
+          font-size: 0.95em;
+          border: 2px solid #FFD700;
+          box-shadow: 0 4px 15px rgba(220, 20, 60, 0.4);
+          transition: all 0.3s;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+        }
+
+        .external-link-card:hover .visit-link {
+          background: linear-gradient(45deg, #FFD700, #FFA500);
+          color: #8B0000;
+          box-shadow: 0 6px 25px rgba(255, 215, 0, 0.6),
+                      0 0 20px rgba(255, 215, 0, 0.4);
+          transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+          .external-links-section {
+            padding: 30px 20px;
+          }
+
+          .external-links-section h2 {
+            font-size: 1.8em;
+          }
+
+          .links-subtitle {
+            font-size: 1em;
+          }
+
+          .external-links-grid {
+            grid-template-columns: 1fr;
+            gap: 20px;
+          }
+
+          .external-link-card {
+            padding: 25px 20px;
+          }
+
+          .link-icon {
+            font-size: 2.5em;
+          }
+
+          .external-link-card h3 {
+            font-size: 1.2em;
           }
         }
 
